@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="30cm" height="30cm" viewBox="0 0 300 300"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>4 arcs testing.  Change the sweep and large arc flags to test</desc>
+<path d="M 125,75 a100,50 0 0,1 100,50" style="stroke:#00ff00;"/>
+</svg>

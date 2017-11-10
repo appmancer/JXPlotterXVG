@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<material name="Pen and Paper">
+	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="2"/>
+	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="2"/>
+	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="2"/>
+	<Cut 		feedrate="100" power="255" repeat="4" hexcode="#000000" tool="2"/>
+</material>

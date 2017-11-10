@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="12cm" height="4cm" viewBox="0 0 1200 400"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  
+    <desc>Path - Quadratic Bezier and SmoothTo</desc>
+    <path d="M200,300 Q400,50 600,300 T1000,300" stroke="#ff0000"/>
+</svg>

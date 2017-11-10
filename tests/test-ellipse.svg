@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="12cm" height="4cm" viewBox="0 0 1200 400"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>Example Ellipse 1 - default cx and cy</desc>
+  <ellipse  rx="250" ry="100" stroke="#0000ff" />
+
+
+  <desc>Example Ellipse 2 - specified cx and cy</desc>
+  <ellipse  rx="250" ry="100" cx="100" cy="150" stroke="#00ff00" />
+</svg>

@@ -1,0 +1,116 @@
+package am.fats;
+
+import java.util.ArrayDeque;
+
+public class TransformationParser
+{
+    public TransformationParser()
+    {}
+
+    public TransformationStack process(String input, TransformationStack trans)
+    {
+        TransformationStack newStack = trans.clone();
+
+        ArrayDeque<String> tforms = new ArrayDeque<String>();
+        String current = "";
+        int c = 0;
+        while(c < input.length())
+        {
+            Character nextChar = input.charAt(c++);
+            if(nextChar == ')')
+            {
+                //Add this to the current and push to the array
+                tforms.addLast(current.trim());
+                current = "";
+            }
+        }
+
+        //Each transformation has a name, and then 1 or more parameters, separated by commas
+        for(String tform : tforms) {
+            String command = "";
+            ArrayDeque<Double> parameters = new ArrayDeque<Double>();
+            c = 0;
+            String buffer = "";
+
+            while (c < tform.length()) {
+                Character nextChar = tform.charAt(c++);
+                if (nextChar == '(') {
+                    //We've got all the command data
+                    command = buffer;
+                    buffer = "";
+                } else if (nextChar == ')' || nextChar == ' ' || nextChar == ',') {
+                    //End of parameter
+                    parameters.addLast(Double.parseDouble(buffer));
+                    buffer = "";
+                } else {
+                    //add to the buffer
+                    buffer += nextChar;
+                }
+            }
+
+            Double[] params = new Double[parameters.size()];
+            parameters.toArray(params);
+            if (command.contentEquals("rotate")) {
+                //We should have 1,2 or 3 values
+                switch (params.length) {
+                    case 1: {
+                        newStack.pushRotate(params[0]);
+                    }
+                    break;
+                    case 2:
+                        newStack.pushRotate(params[0], params[1], params[1]);
+                        break;
+                    case 3:
+                        newStack.pushRotate(params[0], params[1], params[2]);
+                        break;
+                }
+            }
+            else if (command.contentEquals("translate"))
+            {
+                //We should have 1 or 2 params
+                switch (params.length) {
+                    case 1:
+                        newStack.pushTranslate(params[0], 0);
+                        break;
+                    case 2:
+                        newStack.pushTranslate(params[0], params[1]);
+                        break;
+                }
+            }
+            else if (command.contentEquals("scale"))
+            {
+                //We should have 1 or 2 params
+                switch (params.length) {
+                    case 1:
+                        newStack.pushScale(params[0], params[0]);
+                        break;
+                    case 2:
+                        newStack.pushScale(params[0], params[1]);
+                        break;
+                }
+            }
+            else if (command.contentEquals("skewX"))
+            {
+                if (params.length == 1) {
+                    newStack.pushSkew(params[0], 0);
+                }
+            }
+            else if (command.contentEquals("skewY"))
+            {
+                if (params.length == 1) {
+                    newStack.pushSkew(0, params[0]);
+                }
+            }
+            else if (command.contentEquals("matrix"))
+            {
+                if (params.length == 6) {
+                    newStack.push(params[0], params[1], params[2], params[3], params[4], params[5]);
+                }
+            }
+
+        }
+
+        return newStack;
+    }
+}
+
