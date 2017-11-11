@@ -12,6 +12,9 @@ public class SVGPath_Curve_Rel extends SVGPath_Curve_Abs
     @Override
     public void process(ArrayDeque<String> commandQueue, FileLineWriter gcode, TransformationStack trans) throws IOException
     {
+        //We need to reset mIsOk
+        mIsOk = true;
+
         mGcode = gcode;
         mTrans = trans.clone();
         Point2D startPoint = new Point2D();
@@ -19,7 +22,8 @@ public class SVGPath_Curve_Rel extends SVGPath_Curve_Abs
         Point2D startControlPoint = new Point2D();
         Point2D endControlPoint = new Point2D();
 
-        startPoint = PlotterState.getLogicalPosition();
+        startPoint.x = PlotterState.getLogicalPosition().x;
+        startPoint.y = PlotterState.getLogicalPosition().y;
 
         comment("Starting curve", gcode);
 

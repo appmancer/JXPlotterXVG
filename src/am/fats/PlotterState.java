@@ -17,7 +17,8 @@ public class PlotterState
 
     public static Point2D getPosition()
     {
-        return sCurrentPosition;
+        Point2D tmpPos = new Point2D(sCurrentPosition.x, sCurrentPosition.y);
+        return tmpPos;
     }
 
     public static void setPosition(Point2D p)
@@ -34,7 +35,8 @@ public class PlotterState
 
     public static Point2D getLogicalPosition()
     {
-        return sLogicalPosition;
+        Point2D tmpPos = new Point2D(sLogicalPosition.x, sLogicalPosition.y);
+        return tmpPos;
     }
 
     public static void setHeadDown()
@@ -60,7 +62,8 @@ public class PlotterState
 
     public static Point2D getMarkedPosition()
     {
-        return sMarkedPosition;
+        Point2D tmpPos = new Point2D(sMarkedPosition.x, sMarkedPosition.y);
+        return tmpPos;
     }
 
     public static void setControlPosition(Point2D point)
@@ -69,8 +72,21 @@ public class PlotterState
         sControlPos.y = point.y;
     }
 
+    public static Point2D getControlPoint()
+    {
+        Point2D tmpPos = new Point2D(sControlPos.x, sControlPos.y);
+        return tmpPos;
+    }
+
     public static Point2D getViewBox()
     {
-        return sViewBox;
+        Point2D tmpPos = new Point2D(sViewBox.x, sViewBox.y);
+        return tmpPos;
+    }
+
+    public static void setViewBox(Point2D p)
+    {
+        sViewBox.x = p.x;
+        sViewBox.y = p.y;
     }
 }

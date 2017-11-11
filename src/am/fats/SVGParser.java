@@ -16,12 +16,20 @@ public class SVGParser extends DefaultHandler
 
     protected FileLineWriter mGCode;
     protected TransformationStack mTrans;
-    protected SVGElement[] mElements = { new SVGCircle() };
+    protected SVGElement[] mElements = { new SVGCircle(), new SVGEllipse(), new SVGPolyline(), new SVGPath(),
+                        new SVGGroup(), new SVGLine(), new SVGPolygon(), new SVGRect()};
+    protected SVGSvg mSVGElement = new SVGSvg();
 
     public void process(String inputSVGFileName, FileLineWriter gcode) throws IOException
     {
         mGCode = gcode;
         mTrans = new TransformationStack();
+
+        //We have an open SVG.  Write out the standard header
+        mGCode.writeLine("M0"); //Disable screen
+        mGCode.writeLine("G21"); //Units in mm
+        mGCode.writeLine("G28"); //Reset to origin
+        mGCode.writeLine("G90"); //All positions are absolute
 
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
@@ -47,13 +55,6 @@ public class SVGParser extends DefaultHandler
             e.printStackTrace();
         }
 
-        //We have an open SVG.  Write out the standard header
-        mGCode.writeLine("M0"); //Disable screen
-        mGCode.writeLine("G21"); //Units in mm
-        mGCode.writeLine("G28"); //Reset to origin
-        mGCode.writeLine("G90"); //All positions are absolute
-
-
         //Finish the gcode
         //Switch off tool
         mGCode.writeLine("G28"); //Reset to origin
@@ -64,16 +65,26 @@ public class SVGParser extends DefaultHandler
 
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
     {
-        System.out.println(localName);
+        //Special case for an SVG element to get the viewbox dimensions
+        if(localName.contentEquals("svg"))
+        {
+            try {
+                mSVGElement.process(atts, mGCode, mTrans);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         CutSpecification spec = findSpecfication(atts);
-
+        TransformationStack thisTrans = mTrans.clone();
         //Get any transformations that need to be applied
         String transformationData = atts.getValue("transform");
+        if(transformationData == null)
+            transformationData = "";
         if(transformationData.trim().length() > 0)
         {
             TransformationParser tparser = new TransformationParser();
-            mTrans = tparser.process(transformationData, mTrans);
+            thisTrans = tparser.process(transformationData, thisTrans);
         }
 
         if(spec != null)
@@ -91,7 +102,7 @@ public class SVGParser extends DefaultHandler
                     for(int i=0; i < spec.getRepeat(); i++)
                     {
                         try {
-                            elem.process(atts, mGCode, mTrans.clone());
+                            elem.process(atts, mGCode, thisTrans.clone());
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -105,6 +116,8 @@ public class SVGParser extends DefaultHandler
     {
         CutSpecification spec = null;
         String hexcode = atts.getValue("stroke");
+        if(hexcode == null)
+            hexcode = "";
         if(hexcode.length() > 0)
         {
             spec = Material.getSpecification(hexcode);
@@ -112,6 +125,8 @@ public class SVGParser extends DefaultHandler
         else
         {
             String style = atts.getValue("style");
+            if(style == null)
+                style = "";
             if(style.length() > 0)
             {
                 String[] styles = style.split(";");
@@ -129,6 +144,9 @@ public class SVGParser extends DefaultHandler
     }
 
     protected void configureTool(CutSpecification spec) throws IOException {
+        if(spec == null)
+            return;
+
         GCodeComment comment = new GCodeComment("Setting feed rate");
         mGCode.writeLine(comment.toString());
 

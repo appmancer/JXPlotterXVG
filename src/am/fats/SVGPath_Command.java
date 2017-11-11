@@ -17,6 +17,7 @@ public class SVGPath_Command
         if(commandQueue.size() == 0)
         {
             mIsOk = false;
+            return 0.0;
         }
         double retVal = 0;
         String nextValue = commandQueue.getFirst();
@@ -26,6 +27,7 @@ public class SVGPath_Command
         catch (NumberFormatException e)
         {
             mIsOk = false;
+            return 0.0;
         }
 
         commandQueue.removeFirst();

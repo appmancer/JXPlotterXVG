@@ -12,16 +12,17 @@ public class TransformationParser
         TransformationStack newStack = trans.clone();
 
         ArrayDeque<String> tforms = new ArrayDeque<String>();
-        String current = "";
+        StringBuilder current = new StringBuilder();
         int c = 0;
         while(c < input.length())
         {
             Character nextChar = input.charAt(c++);
+            current.append(nextChar);
             if(nextChar == ')')
             {
                 //Add this to the current and push to the array
-                tforms.addLast(current.trim());
-                current = "";
+                tforms.addLast(current.toString().trim());
+                current = new StringBuilder();
             }
         }
 
@@ -30,21 +31,21 @@ public class TransformationParser
             String command = "";
             ArrayDeque<Double> parameters = new ArrayDeque<Double>();
             c = 0;
-            String buffer = "";
+            StringBuilder buffer = new StringBuilder();
 
             while (c < tform.length()) {
                 Character nextChar = tform.charAt(c++);
                 if (nextChar == '(') {
                     //We've got all the command data
-                    command = buffer;
-                    buffer = "";
+                    command = buffer.toString();
+                    buffer = new StringBuilder();
                 } else if (nextChar == ')' || nextChar == ' ' || nextChar == ',') {
                     //End of parameter
-                    parameters.addLast(Double.parseDouble(buffer));
-                    buffer = "";
+                    parameters.addLast(Double.parseDouble(buffer.toString()));
+                    buffer = new StringBuilder();
                 } else {
                     //add to the buffer
-                    buffer += nextChar;
+                    buffer.append(nextChar);
                 }
             }
 

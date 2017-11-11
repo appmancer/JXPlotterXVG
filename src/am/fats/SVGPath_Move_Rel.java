@@ -12,6 +12,9 @@ public class SVGPath_Move_Rel extends SVGPath_Command
     @Override
     public void process(ArrayDeque<String> commandQueue, FileLineWriter gcode, TransformationStack trans) throws IOException
     {
+        //We need to reset mIsOk
+        mIsOk = true;
+
         boolean isFirst = true;
         double y = 0;
         double x = 0;
@@ -19,11 +22,7 @@ public class SVGPath_Move_Rel extends SVGPath_Command
         {
             //Read x value
             x = readDouble(commandQueue);
-
-            if(mIsOk)
-            {
-                y = readDouble(commandQueue);
-            }
+            y = readDouble(commandQueue);
 
             if(mIsOk)
             {

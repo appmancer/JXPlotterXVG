@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_xplottersvg" default="compile.module.xplottersvg">
+  <dirname property="module.xplottersvg.basedir" file="${ant.file.module_xplottersvg}"/>
+  
+  <property name="module.jdk.home.xplottersvg" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.xplottersvg" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.xplottersvg" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.xplottersvg" value="-encoding UTF-8 -source 1.8 -target 1.8 ${compiler.args}"/>
+  
+  <property name="xplottersvg.output.dir" value="${module.xplottersvg.basedir}/out/production/XPlotterSVG"/>
+  <property name="xplottersvg.testoutput.dir" value="${module.xplottersvg.basedir}/out/test/XPlotterSVG"/>
+  
+  <path id="xplottersvg.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="xplottersvg.module.production.classpath">
+    <path refid="${module.jdk.classpath.xplottersvg}"/>
+  </path>
+  
+  <path id="xplottersvg.runtime.production.module.classpath">
+    <pathelement location="${xplottersvg.output.dir}"/>
+  </path>
+  
+  <path id="xplottersvg.module.classpath">
+    <path refid="${module.jdk.classpath.xplottersvg}"/>
+    <pathelement location="${xplottersvg.output.dir}"/>
+  </path>
+  
+  <path id="xplottersvg.runtime.module.classpath">
+    <pathelement location="${xplottersvg.testoutput.dir}"/>
+    <pathelement location="${xplottersvg.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.xplottersvg">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.xplottersvg">
+    <patternset refid="excluded.from.module.xplottersvg"/>
+  </patternset>
+  
+  <path id="xplottersvg.module.sourcepath">
+    <dirset dir="${module.xplottersvg.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.xplottersvg" depends="compile.module.xplottersvg.production,compile.module.xplottersvg.tests" description="Compile module XPlotterSVG"/>
+  
+  <target name="compile.module.xplottersvg.production" depends="register.custom.compilers" description="Compile module XPlotterSVG; production classes">
+    <mkdir dir="${xplottersvg.output.dir}"/>
+    <javac2 destdir="${xplottersvg.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.xplottersvg}/javac">
+      <compilerarg line="${compiler.args.xplottersvg}"/>
+      <bootclasspath refid="xplottersvg.module.bootclasspath"/>
+      <classpath refid="xplottersvg.module.production.classpath"/>
+      <src refid="xplottersvg.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.xplottersvg"/>
+    </javac2>
+    
+    <copy todir="${xplottersvg.output.dir}">
+      <fileset dir="${module.xplottersvg.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.xplottersvg.tests" depends="register.custom.compilers,compile.module.xplottersvg.production" description="compile module XPlotterSVG; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.xplottersvg" description="cleanup module">
+    <delete dir="${xplottersvg.output.dir}"/>
+    <delete dir="${xplottersvg.testoutput.dir}"/>
+  </target>
+</project>

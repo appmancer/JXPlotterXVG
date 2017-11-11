@@ -20,10 +20,19 @@ public class SVGEllipse extends SVGElement
         double radiusX     = 0;
         double radiusY     = 0;
 
-        startX      = Double.parseDouble(atts.getValue("cx"));
-        startY      = Double.parseDouble(atts.getValue("cy"));
-        radiusX     = Double.parseDouble(atts.getValue("rx"));
-        radiusY     = Double.parseDouble(atts.getValue("ry"));
+        String attX = atts.getValue("cx");
+        String attY = atts.getValue("cy");
+        String radX = atts.getValue("rx");
+        String radY = atts.getValue("ry");
+
+        if(attX == null)
+            attX = "0.0";
+        if(attY == null)
+            attY = "0.0";
+        startX      = Double.parseDouble(attX);
+        startY      = Double.parseDouble(attY);
+        radiusX     = Double.parseDouble(radX);
+        radiusY     = Double.parseDouble(radY);
         //We have all of the value from the attributes
 
         GCodeEllipse ellipse = new GCodeEllipse(startX, startY, radiusX, radiusY);

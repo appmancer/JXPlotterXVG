@@ -47,7 +47,6 @@ public class Material extends DefaultHandler
 
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
     {
-        System.out.println(localName);
         if(localName.contentEquals("material"))
         {
             //New material

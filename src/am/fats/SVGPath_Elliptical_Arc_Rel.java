@@ -12,6 +12,9 @@ public class SVGPath_Elliptical_Arc_Rel extends SVGPath_Elliptical_Arc_Abs
     @Override
     public void process(ArrayDeque<String> commandQueue, FileLineWriter gcode, TransformationStack trans) throws IOException
     {
+        //We need to reset mIsOk
+        mIsOk = true;
+
         mGCode = gcode;
         mTrans = trans.clone();
         // SVG Params

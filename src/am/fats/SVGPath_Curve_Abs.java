@@ -16,6 +16,9 @@ public class SVGPath_Curve_Abs extends SVGPath_Command
     @Override
     public void process(ArrayDeque<String> commandQueue, FileLineWriter gcode, TransformationStack trans) throws IOException
     {
+        //We need to reset mIsOk
+        mIsOk = true;
+
         mGcode = gcode;
         mTrans = trans.clone();
         Point2D startPoint = new Point2D();
@@ -23,7 +26,9 @@ public class SVGPath_Curve_Abs extends SVGPath_Command
         Point2D startControlPoint = new Point2D();
         Point2D endControlPoint = new Point2D();
 
-        startPoint = PlotterState.getLogicalPosition();
+        //Clone the logical position
+        startPoint.x = PlotterState.getLogicalPosition().x;
+        startPoint.y = PlotterState.getLogicalPosition().y;
 
         comment("Starting curve", gcode);
 
@@ -41,7 +46,7 @@ public class SVGPath_Curve_Abs extends SVGPath_Command
 
             if(mIsOk)
             {
-                double stepSize = 0.1; //Lets see how that goes.  This will mean that there will always be 100 steps per
+                double stepSize = 0.01; //Lets see how that goes.  This will mean that there will always be 100 steps per
                 //curve.  Lets make it more sophisticated once its working
                 //TODO: Calculate an appropriate resolution for each curve
 

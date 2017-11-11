@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Main {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 	    System.out.println("XPlotterSVG Copyright (c) 2017 Samuel Pickard");
         System.out.println("This program comes with ABSOLUTELY NO WARRANTY.");
         System.out.println("This is free software, and you are welcome to redistribute it");
@@ -30,12 +30,14 @@ public class Main {
                 outputFileName = args[2];
             }
 
+            //Parse the material file
+            Material.load(inputMaterialFileName);
 
             //Open the output file
-            FileWriter gcode;
+            FileLineWriter gcode;
             try
             {
-                gcode = new FileWriter(outputFileName, false);
+                gcode = new FileLineWriter(outputFileName);
             }
             catch(Exception e)
             {
@@ -44,8 +46,10 @@ public class Main {
             }
 
             //Create an instance of the parser
+            SVGParser parser = new SVGParser();
 
             //Parse!
+            parser.process(inputSVGFileName, gcode);
 
             //Close the output file
             try {
