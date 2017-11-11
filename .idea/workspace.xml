@@ -6,50 +6,68 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95998813-1eef-4029-ab68-6fd05b77543d" name="Default" comment="Tested and fixed bugs">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/XPlotterSVG_jar.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JXPlotterSVG.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/JXPlotterSVG.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/module_xplottersvg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/GCodeRect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Abs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Rel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Abs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Rel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Rel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Abs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Rel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPolygon.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGPolyline.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGRect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/am/fats/SVGSvg.java" />
+    <list default="true" id="95998813-1eef-4029-ab68-6fd05b77543d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XPlotterSVG.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/XPlotterTemplate.svg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gcode/test-rect.gcode" afterPath="$PROJECT_DIR$/gcode/test-rect.gcode" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/materials/laser+3mm-plywood.xml" afterPath="$PROJECT_DIR$/materials/laser+3mm-plywood.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/CutSpecification.java" afterPath="$PROJECT_DIR$/src/am/fats/CutSpecification.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/FileLineWriter.java" afterPath="$PROJECT_DIR$/src/am/fats/FileLineWriter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeCircle.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeCircle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeCommand.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeCommand.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeComment.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeComment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeEllipse.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeEllipse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeFeed.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeFeed.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeLaserOff.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeLaserOff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeLaserOn.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeLaserOn.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeLine.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeLine.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeMove.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeMove.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodePath.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodePath.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodePenDown.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodePenDown.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodePenUp.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodePenUp.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeRect.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeRect.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/Main.java" afterPath="$PROJECT_DIR$/src/am/fats/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/Material.java" afterPath="$PROJECT_DIR$/src/am/fats/Material.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/PlotterState.java" afterPath="$PROJECT_DIR$/src/am/fats/PlotterState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/Point2D.java" afterPath="$PROJECT_DIR$/src/am/fats/Point2D.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGCircle.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGCircle.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGDesc.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGDesc.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGElement.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGElement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGEllipse.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGEllipse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGGroup.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGLine.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGLine.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGParser.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_ClosePath.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_ClosePath.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Command.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Command.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Abs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Rel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Abs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Abs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Abs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Rel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Move_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Move_Abs.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Move_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Move_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Abs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPolygon.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPolygon.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGPolyline.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGPolyline.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGRect.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGRect.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGSvg.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGSvg.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/Tool.java" afterPath="$PROJECT_DIR$/src/am/fats/Tool.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/Transformation.java" afterPath="$PROJECT_DIR$/src/am/fats/Transformation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/TransformationParser.java" afterPath="$PROJECT_DIR$/src/am/fats/TransformationParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test-line.svg" afterPath="$PROJECT_DIR$/tests/test-line.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/TransformationStack.java" afterPath="$PROJECT_DIR$/src/am/fats/TransformationStack.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,104 +79,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SVGParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/am/fats/SVGParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="109" column="13" lean-forward="false" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XMLDocumentScannerImpl.class" pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="XML11Configuration.class" pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/com/sun/org/apache/xerces/internal/parsers/XML11Configuration.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="worldpay2.svg" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/worldpay2.svg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="23" column="120" lean-forward="false" selection-start-line="23" selection-start-column="120" selection-end-line="23" selection-end-column="120" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransformationParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/am/fats/TransformationParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-453">
-              <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TransformationStack.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/am/fats/TransformationStack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test-transform-rotate.svg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/test-transform-rotate.svg">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SVGPath.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1836">
-              <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding>
-                <element signature="e#1087#1095#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SVGPath_Quadratic_Curve_Rel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlotterState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/am/fats/PlotterState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-              <folding />
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="360">
+                <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+                <folding>
+                  <marker date="1510416195499" expanded="true" signature="2196:2513" ph="..." />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -193,22 +124,32 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/am/fats/GCodeEllipse.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/GCodeFeed.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/GCodeLaserOff.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/GCodeLaserOn.java" />
         <option value="$PROJECT_DIR$/src/am/fats/GCodeLine.java" />
         <option value="$PROJECT_DIR$/src/am/fats/GCodeMove.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/Point2D.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/GCodePath.java" />
         <option value="$PROJECT_DIR$/src/am/fats/GCodePenDown.java" />
         <option value="$PROJECT_DIR$/src/am/fats/GCodePenUp.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodeLaserOn.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodeLaserOff.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodeCircle.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/GCodeRect.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/Main.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/Material.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/PlotterState.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/Point2D.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGCircle.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGDesc.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodeEllipse.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGElement.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGEllipse.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGGroup.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGLine.java" />
-        <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/ArrayDeque.class" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGParser.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_ClosePath.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Command.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Abs.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Rel.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Abs.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Rel.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Abs.java" />
@@ -217,33 +158,23 @@
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Line_Rel.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Move_Abs.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Move_Rel.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Rel.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Abs.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Rel.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGPolygon.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodeCommand.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodeRect.java" />
-        <option value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Override.class" />
-        <option value="$PROJECT_DIR$/src/am/fats/GCodePath.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/Main.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/SVGPolyline.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGRect.java" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGSvg.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/Material.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGEllipse.java" />
-        <option value="$PROJECT_DIR$/tests/test-line.svg" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Command.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Rel.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/PlotterState.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Abs.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPolyline.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGElement.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/Tool.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/Transformation.java" />
+        <option value="$PROJECT_DIR$/src/am/fats/TransformationStack.java" />
         <option value="$PROJECT_DIR$/src/am/fats/TransformationParser.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGPath.java" />
-        <option value="$PROJECT_DIR$/src/am/fats/SVGParser.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -277,6 +208,11 @@
             <path>
               <item name="JXPlotterXVG" type="b2602c69:ProjectViewProjectNode" />
               <item name="JXPlotterXVG" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JXPlotterXVG" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JXPlotterXVG" type="462c0819:PsiDirectoryNode" />
+              <item name="materials" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -366,6 +302,14 @@
       <option name="presentableId" value="Default" />
       <updated>1510127930532</updated>
     </task>
+    <task id="LOCAL-00001" summary="Tested and fixed bugs">
+      <created>1510407285433</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1510407285433</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -373,7 +317,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -384,7 +328,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25849974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25849974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -417,102 +361,507 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Move_Rel.java">
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeEllipse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2614#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java">
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeFeed.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Abs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="64" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Override.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGCircle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#992#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeLaserOff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1006#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeLaserOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1042#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2129#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+            <element signature="e#952#953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeMove.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2431#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/GCodePath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodePenDown.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#953#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodePenUp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1006#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeRect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1661#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2877#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/Material.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3129#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/PlotterState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2981#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/Point2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1083#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGCircle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGDesc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1701#0" expanded="true" />
+            <element signature="e#956#957#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGEllipse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1959#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1083#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#8691#0" expanded="true" />
+            <element signature="e#1819#1827#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#5923#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_ClosePath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1492#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3028#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#4197#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3079#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#7523#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2808#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1835#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Horizontal_Line_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1855#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Line_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1740#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Line_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1873#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Move_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2368#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Move_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2457#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3975#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2788#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2875#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3232#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3189#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#3861#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Abs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Vertical_Line_Rel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1836#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPolygon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPolyline.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#2597#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/SVGRect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="21" column="61" lean-forward="false" selection-start-line="21" selection-start-column="61" selection-end-line="23" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#146#147#0" expanded="false" />
-            <element signature="e#183#184#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcode/test-rect.gcode">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="17" />
-          <folding />
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1648#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/SVGSvg.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#0#1399#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/Tool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1426#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/Transformation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#1056#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/TransformationStack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#4103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/am/fats/TransformationParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#4738#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -520,322 +869,13 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="18">
-            <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <first_editor relative-caret-position="360">
+            <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <folding>
+              <marker date="1510416195499" expanded="true" signature="2196:2513" ph="..." />
+            </folding>
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/XPlotterSVG.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/Material.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="49" column="7" lean-forward="false" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
-          <folding>
-            <element signature="e#2351#2352#0" expanded="false" />
-            <element signature="e#2393#2394#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGEllipse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-ellipse.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="e#146#147#0" expanded="false" />
-            <element signature="e#183#184#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-line.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeEllipse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/String.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="505" column="15" lean-forward="false" selection-start-line="505" selection-start-column="15" selection-end-line="505" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-4-arcs.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Move_Abs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Elliptical_Arc_Rel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#159#160#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/Point2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding>
-            <element signature="e#183#184#0" expanded="false" />
-            <element signature="e#220#221#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Rel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="54" column="22" lean-forward="true" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_SmoothTo_Rel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="29" column="42" lean-forward="true" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Curve_Abs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="74" column="3" lean-forward="true" selection-start-line="74" selection-start-column="3" selection-end-line="74" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-path-quad-bezier.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Abs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Abs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPolygon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-polygon.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_SmoothTo_Rel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1026">
-          <caret line="58" column="24" lean-forward="false" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPolyline.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-rect.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/test-transform-rotate.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/PlotterState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="23" column="23" lean-forward="false" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath_Quadratic_Curve_Rel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/TransformationParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-453">
-          <caret line="46" column="39" lean-forward="false" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="e#1087#1095#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/TransformationStack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="119" column="0" lean-forward="false" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/com/sun/org/apache/xerces/internal/parsers/XML11Configuration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="359" column="0" lean-forward="false" selection-start-line="359" selection-start-column="0" selection-end-line="359" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/am/fats/SVGParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="109" column="13" lean-forward="false" selection-start-line="109" selection-start-column="13" selection-end-line="109" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/worldpay2.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="23" column="120" lean-forward="false" selection-start-line="23" selection-start-column="120" selection-end-line="23" selection-end-column="120" />
-          <folding />
         </state>
       </provider>
     </entry>

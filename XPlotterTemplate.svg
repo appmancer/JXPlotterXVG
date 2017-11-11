@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 300 240"
+   height="240mm"
+   width="300mm"
+   sodipodi:docname="XPlotterTemplate.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview5739"
+     showgrid="false"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="305.40876"
+     inkscape:cy="342.05106"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-57)"
+     id="layer1">
+    <text
+       id="text4506"
+       y="107.11974"
+       x="-165.30855"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="107.11974"
+         x="-165.30855"
+         id="tspan4504">XPlotterSVG Template</tspan><tspan
+         id="tspan4508"
+         style="stroke-width:0.26458332px"
+         y="120.3489"
+         x="-165.30855" /></text>
+    <text
+       id="text4512"
+       y="117.39488"
+       x="-164.10349"
+       style="font-style:normal;font-weight:normal;font-size:8.46666622px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#804b2d;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4514"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="117.39488"
+         x="-164.10349">This template helps you layout designs for the Pinecone XPlotter.</tspan><tspan
+         id="tspan4518"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="128.89461"
+         x="-164.10349">This version is limited to a workspace 200x200mm, the effective </tspan><tspan
+         id="tspan4520"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="140.39433"
+         x="-164.10349">work area of the XPlotter.</tspan><tspan
+         id="tspan4524"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="151.89407"
+         x="-164.10349">You can combine the output of this template with a material file </tspan><tspan
+         id="tspan4526"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="163.3938"
+         x="-164.10349">to create GCode for the XPlotter.</tspan><tspan
+         id="tspan4528"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="174.89352"
+         x="-164.10349" /></text>
+    <flowRoot
+       style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot4530"
+       xml:space="preserve"><flowRegion
+         id="flowRegion4532"><rect
+           y="272.04245"
+           x="-381.83768"
+           height="94.954338"
+           width="140.41121"
+           id="rect4534" /></flowRegion><flowPara
+         id="flowPara4536" /></flowRoot>    <flowRoot
+       style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot4538"
+       xml:space="preserve"><flowRegion
+         id="flowRegion4540"><rect
+           y="317.4993"
+           x="-309.10669"
+           height="56.568542"
+           width="97.984795"
+           id="rect4542" /></flowRegion><flowPara
+         id="flowPara4544" /></flowRoot>    <flowRoot
+       style="font-style:normal;font-weight:normal;font-size:32px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot4546"
+       xml:space="preserve"><flowRegion
+         id="flowRegion4548"><rect
+           y="42.73782"
+           x="-574.77679"
+           height="324.25897"
+           width="327.28943"
+           id="rect4550" /></flowRegion><flowPara
+         id="flowPara4552" /></flowRoot>    <text
+       id="text4512-3"
+       y="176.74716"
+       x="-164.10353"
+       style="font-style:normal;font-weight:normal;font-size:8.46666622px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan4640"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="176.74716"
+         x="-164.10353">For best results, set the stroke width to 0.001mm, and zoom in</tspan><tspan
+         id="tspan4642"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="188.24689"
+         x="-164.10353">to check your designs.</tspan><tspan
+         id="tspan4650"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="199.74661"
+         x="-164.10353">These are the normal colour rules. Set the stroke colour to these </tspan><tspan
+         id="tspan4652"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="211.24635"
+         x="-164.10353">values for these effects:</tspan><tspan
+         id="tspan4654"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="222.74608"
+         x="-164.10353">#ff0000 (red) - Light line</tspan><tspan
+         id="tspan4656"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="234.2458"
+         x="-164.10353">#00ff00 (green) - Medium line</tspan><tspan
+         id="tspan4658"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="245.74553"
+         x="-164.10353">#0000ff (blue) - Dark line</tspan><tspan
+         id="tspan4660"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="257.24524"
+         x="-164.10353">#000000 (black) - Cut through</tspan><tspan
+         id="tspan4664"
+         style="font-size:4.93888903px;fill:#ea6920;fill-opacity:1;stroke-width:0.26458332px"
+         y="268.74496"
+         x="-164.10353">All other colours (like this text) will be ignored</tspan></text>
+  </g>
+</svg>
