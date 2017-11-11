@@ -20,17 +20,17 @@ The above command will convert your SVG design into GCode use the laser+card mat
 alt="XPlotterSVG in action" width="240" height="180" border="10" /></a>
 
 ## Download
-Clone and build from this repo, or just [download from here](https://github.com/appmancer/JXPlotterSVG/XPlotterSVG.jar)
+Clone and build from this repo, or just [download from here](https://github.com/appmancer/JXPlotterXVG/blob/master/XPlotterSVG.jar)
 
 ## Creating the SVG file
-You might already have a design in an editor like[Inkscape.](https://inkscape.org/en/) To prepare your design for conversion,
-I recommend that you copy your design into the [template](https://github.com/appmancer/JXPlotterSVG/XPlotterTemplate.svg) I've designed.
+You might already have a design in an editor like [Inkscape.](https://inkscape.org/en/) To prepare your design for conversion,
+I recommend that you copy your design into the [template](https://github.com/appmancer/JXPlotterSVG/blob/master/XPlotterTemplate.svg) I've designed.
 This template creates a workspace 240x300mm, the working space of the XPlotter.
 
 ## Using a material file
 The XPlotter comes with a variety of tools, and can be used with a variety of media.  The tool and the medium you are working with
-will have an effect on the GCode that will be required.  For instance, cutting plywood
-with the laser means a lower feedrate, and for the cuts to be repeat.  The same SVG with
+will have an effect on the GCode.  For instance, cutting plywood
+with the laser means a lower feedrate, and for the cuts to be repeated.  The same SVG with
 a pen and paper will mean a faster feed rate, and no repetition.
 
 To specify how you want the tool to behave, you use a material file.  There are a few
@@ -71,7 +71,7 @@ To use text in your design, before you convert, select the text, and the Path, a
 to edit your text now, but it will convert correctly for plotting.
 
 ## Preparing your design
-1. In Inkscape, check that your shape have the correct hexcode.
+1. In Inkscape, check that your shapes have the correct hexcode.
 2. Press CTRL+SHIFT+F to open the Fill & Stroke dialogue boxes
 3. Select your shapes, and in the Fill tab, set to 'no paint'
 4. In the Stroke Paint tab, set to 'Flat colour'
