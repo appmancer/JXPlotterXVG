@@ -171,5 +171,8 @@ public class SVGParser extends DefaultHandler
 
         //Set the power (laser only)
         Tool.setPower(spec.getPower());
+
+        //Set the feedrate
+        Tool.setFeedrate(spec.getFeedrate());
     }
 }
