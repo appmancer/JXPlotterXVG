@@ -6,12 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95998813-1eef-4029-ab68-6fd05b77543d" name="Default" comment="Update licence and docs">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XPlotterSVG.jar" afterPath="$PROJECT_DIR$/XPlotterSVG.jar" />
+    <list default="true" id="95998813-1eef-4029-ab68-6fd05b77543d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/GCodeLine.java" afterPath="$PROJECT_DIR$/src/am/fats/GCodeLine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/am/fats/SVGParser.java" afterPath="$PROJECT_DIR$/src/am/fats/SVGParser.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,14 +33,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="442">
-                <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+              <first_editor relative-caret-position="234">
+                <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
                 <folding>
-                  <marker date="1510418516857" expanded="true" signature="2201:2518" ph="..." />
+                  <marker date="1510512684817" expanded="true" signature="2207:2524" ph="..." />
                 </folding>
               </first_editor>
               <second_editor />
@@ -85,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GCodeLine.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GCodeLine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeLine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="53" column="37" lean-forward="false" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+            <state relative-caret-position="234">
+              <caret line="45" column="50" lean-forward="true" selection-start-line="43" selection-start-column="51" selection-end-line="45" selection-end-column="50" />
               <folding>
                 <element signature="e#915#916#0" expanded="true" />
                 <element signature="e#952#953#0" expanded="true" />
@@ -176,9 +174,9 @@
         <option value="$PROJECT_DIR$/src/am/fats/Transformation.java" />
         <option value="$PROJECT_DIR$/src/am/fats/TransformationStack.java" />
         <option value="$PROJECT_DIR$/src/am/fats/TransformationParser.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/am/fats/SVGParser.java" />
         <option value="$PROJECT_DIR$/src/am/fats/GCodeLine.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -343,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1510418557924</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Bug fix to correct feedrates">
+      <created>1510476575629</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1510476575629</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -362,7 +367,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25849974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25849974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -386,9 +391,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tested and fixed bugs" />
-    <MESSAGE value="Update licence and docs" />
     <MESSAGE value="Spelling errors" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spelling errors" />
+    <MESSAGE value="Update licence and docs" />
+    <MESSAGE value="Bug fix to correct feedrates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix to correct feedrates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -857,19 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="442">
-            <caret line="52" column="37" lean-forward="false" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
-            <folding>
-              <marker date="1510418516857" expanded="true" signature="2201:2518" ph="..." />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/SVGPath.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1959">
@@ -903,12 +896,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/am/fats/GCodeLine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="53" column="37" lean-forward="false" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+        <state relative-caret-position="234">
+          <caret line="45" column="50" lean-forward="true" selection-start-line="43" selection-start-column="51" selection-end-line="45" selection-end-column="50" />
           <folding>
             <element signature="e#915#916#0" expanded="true" />
             <element signature="e#952#953#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="234">
+            <caret line="13" column="21" lean-forward="false" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+            <folding>
+              <marker date="1510512684817" expanded="true" signature="2207:2524" ph="..." />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

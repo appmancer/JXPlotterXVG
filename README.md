@@ -7,11 +7,11 @@ To use this tool, you will need to have Java 8 installed.  This is the current v
 
 Usage: 
 ```
-java -jar XPlotter.jar <svgfile> <materialfile> <outputfile>
+java -jar XPlotterSVG.jar <svgfile> <materialfile> <outputfile>
 ```
 for instance:
 ```
-java -jar XPlotter.jar MyDesign.svg laser+card.xml XPLOTTER.G
+java -jar XPlotterSVG.jar MyDesign.svg laser+card.xml XPLOTTER.G
 ```
 The above command will convert your SVG design into GCode use the laser+card material file.
 
