@@ -43,11 +43,13 @@ The XML file is very simple to read:
 ```xml
 <?xml version="1.0" standalone="no"?>
 <material name="Laser and 3mm Plywood">
-	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="2"/>
-	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="2"/>
-	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="2"/>
-	<Cut 		feedrate="100" power="255" repeat="4" hexcode="#000000" tool="2"/>
+	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="laser"/>
+	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="laser"/>
+	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="laser"/>
+	<Cut 		feedrate="100" power="255" repeat="4" hexcode="#000000" tool="laser"/>
+	<Raster		feedrate="400" power="255" repeat="1" hexcode="raster"  tool="laser"/>
 </material>
+
 ```
 You can specify several different tool settings in one material file. 
 In this example, I've created settings for light, medium and dark marks 
@@ -55,6 +57,13 @@ on the medium, plus a setting to cut through the wood.
 
 You can create as many different settings as you need in one file, but 
 ensure that each setting has a unique hexcode.
+
+## Raster images
+The exception is handling raster images.  You can include raster images (like colour photos)
+in your SVG and they will be converted.  Because you can't set the colour on the raster image
+then you can just set one specification.  The power value will be ignored, it will be
+calculated by the shade on the pixel of the image that is being drawn. Feedrate and
+repeat values are used.
 
 ## Matching materials to the design
 In your design you can specify which setting to apply by setting the stroke colour

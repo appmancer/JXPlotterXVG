@@ -57,11 +57,11 @@ public class SVGImage extends SVGElement
         double horizontalPixelSizeMM = width / pixWidth;
         double verticalPixelSizeMM = height / pixHeight;
 
-        IntBuffer greyMap = ByteBuffer.allocate(pixWidth * pixHeight).asIntBuffer();
+        IntBuffer greyMap = ByteBuffer.allocate(pixWidth * pixHeight * 4).asIntBuffer();
 
-        for(int i=0; i<height; i++)
+        for(int i=0; i<pixHeight; i++)
         {
-            for(int j=0; j<width; j++)
+            for(int j=0; j<pixWidth; j++)
             {
                 Color c = new Color(image.getRGB(j, i));
                 int red = (int)(c.getRed() * 0.299); //76.245
@@ -75,16 +75,27 @@ public class SVGImage extends SVGElement
         int currentShade = 0;
         double startX = 0;
         double endX = 0;
+        GCodeComment startLR = new GCodeComment("Starting left to right");
+        GCodeComment startRL = new GCodeComment("Starting right to left");
         //OK, we have a byte buffer with all of the pixel data, and the pixel size in millimeters.  How hard can it be?
-        for(int i=0; i<height; i++) {
+        for(int i=0; i<pixHeight; i++) {
             //Move to start of line
+
+            startX = 0;
+            endX = 0;
+
+            gcode.writeLine(startLR);
+
+            GCodeLaserOff laserOff = new GCodeLaserOff();
+            gcode.writeLine(laserOff.toString());
 
             GCodeMove move = new GCodeMove(attX, attY + i * verticalPixelSizeMM);
             move.setTransformationStack(trans);
             gcode.writeLine(move.toString());
 
-            for (int j = 0; j < width; j++) {
-                int nextShade = greyMap.get(i*pixHeight + j);
+            //Left to right
+            for (int j = 0; j < pixWidth; j++) {
+                int nextShade = greyMap.get(i*pixWidth + j);
                 if (nextShade != currentShade) {
                     endX = j;
                     currentShade = nextShade;
@@ -96,18 +107,53 @@ public class SVGImage extends SVGElement
                 }
             } //End of line
             //Do we need to draw to end of line?
-            if (startX < endX) {
-                drawPixels(attX + pixWidth * horizontalPixelSizeMM, attY + pixHeight * verticalPixelSizeMM, currentShade);
-                startX = endX;
+            if (endX < pixWidth) {
+                drawPixels(attX + width, attY + i * verticalPixelSizeMM, currentShade);
+            }
+
+            //move on another line
+            i++;
+            if(i == pixHeight)
+                break;
+
+            gcode.writeLine(startRL);
+
+            gcode.writeLine(laserOff.toString());
+            move = new GCodeMove(attX+width, attY + i * verticalPixelSizeMM);
+            move.setTransformationStack(mTrans);
+            gcode.writeLine(move.toString());
+
+            startX = 0;
+            endX = 0;
+
+            //Right to left
+            for (int j = pixWidth-1; j >= 0; j--) {
+                int nextShade = greyMap.get(i*pixWidth + j);
+                if (nextShade != currentShade) {
+                    endX = j;
+                    currentShade = nextShade;
+                    if (startX != endX) {
+                        //Draw a line!
+                        drawPixels(attX + endX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM, currentShade);
+                        startX = endX;
+                    }
+                }
+            } //End of line
+            //Do we need to draw to end of line?
+            if (endX > 0) {
+                drawPixels(attX , attY + i * verticalPixelSizeMM, currentShade);
             }
         }
+
+        GCodeComment finished = new GCodeComment("Raster image is complete");
+        gcode.writeLine(finished);
     }
 
     private void drawPixels(double endx, double endy, int power) throws IOException {
         //Draw a line!
         if(Tool.currentTool() == Tool.TOOL_LASER)
         {
-            Tool.setPower(power);
+            Tool.setPower(255 - power);
             GCodeLaserOn on = new GCodeLaserOn();
             mGCode.writeLine(on.toString());
         }

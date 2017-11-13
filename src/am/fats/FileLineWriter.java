@@ -24,4 +24,8 @@ public class FileLineWriter extends FileWriter{
         super.write(line);
         super.write(System.lineSeparator());
     }
+
+    public void writeLine(GCodeCommand command) throws IOException {
+        writeLine(command.toString());
+    }
 }
