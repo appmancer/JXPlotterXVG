@@ -72,7 +72,7 @@ public class Material extends DefaultHandler
             newSpec.setFeedrate(Integer.parseInt(atts.getValue("feedrate")));
             newSpec.setPower(Integer.parseInt(atts.getValue("power")));
             newSpec.setRepeat(Integer.parseInt(atts.getValue("repeat")));
-            newSpec.setTool(Integer.parseInt(atts.getValue("tool")));
+            newSpec.setTool(atts.getValue("tool"));
             newSpec.setHexCode(atts.getValue("hexcode"));
 
             sSpecs.put(atts.getValue("hexcode"), newSpec);

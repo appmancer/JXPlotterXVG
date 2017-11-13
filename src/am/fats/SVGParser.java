@@ -29,7 +29,7 @@ public class SVGParser extends DefaultHandler
     protected FileLineWriter mGCode;
     protected TransformationStack mTrans;
     protected SVGElement[] mElements = { new SVGCircle(), new SVGEllipse(), new SVGPolyline(), new SVGPath(),
-                        new SVGGroup(), new SVGLine(), new SVGPolygon(), new SVGRect()};
+                        new SVGGroup(), new SVGLine(), new SVGPolygon(), new SVGRect(), new SVGImage()};
     protected SVGSvg mSVGElement = new SVGSvg();
 
     public void process(String inputSVGFileName, FileLineWriter gcode) throws IOException
@@ -97,6 +97,12 @@ public class SVGParser extends DefaultHandler
         {
             TransformationParser tparser = new TransformationParser();
             thisTrans = tparser.process(transformationData, thisTrans);
+        }
+
+        //Another special case - TODO: redesign
+        if(localName.toLowerCase().contentEquals("image"))
+        {
+            spec = Material.getSpecification("raster");
         }
 
         if(spec != null)

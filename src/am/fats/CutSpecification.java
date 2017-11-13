@@ -67,6 +67,26 @@ public class CutSpecification
         return mRepeat;
     }
 
+    public void setTool(String tool)
+    {
+        try {
+            int t = Integer.parseInt(tool);
+            setTool(t);
+        }
+        catch(NumberFormatException nfe)
+        {
+            if(tool.toLowerCase().contentEquals("laser"))
+            {
+                setTool(2);
+            }
+            else if(tool.toLowerCase().contentEquals("pen")
+                    || tool.toLowerCase().contentEquals("brush"))
+            {
+                setTool(1);
+            }
+        }
+    }
+
     public void setTool(int tool)
     {
         mTool = tool;
