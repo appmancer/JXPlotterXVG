@@ -20,7 +20,7 @@ The above command will convert your SVG design into GCode use the laser+card mat
 alt="XPlotterSVG in action" width="240" height="180" border="10" /></a>
 
 ## Download
-Clone and build from this repo, or just [download from here](https://github.com/appmancer/JXPlotterXVG/blob/master/XPlotterSVG.jar)
+Clone and build from this repo, or just [download from here](http://fats.am/XPlotterSVG/XPlotterSVG.jar)
 
 ## Creating the SVG file
 You might already have a design in an editor like [Inkscape.](https://inkscape.org/en/) To prepare your design for conversion,
