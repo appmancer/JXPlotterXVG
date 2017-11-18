@@ -124,7 +124,7 @@ public class SVGImage extends SVGElement
             gcode.writeLine(move.toString());
 
             startX = 0;
-            endX = 0;
+            endX = pixWidth;
 
             //Right to left
             for (int j = pixWidth-1; j >= 0; j--) {
