@@ -26,10 +26,13 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException {
+
 	    System.out.println("XPlotterSVG Copyright (c) 2017 Samuel Pickard");
         System.out.println("This program comes with ABSOLUTELY NO WARRANTY.");
         System.out.println("This is free software, and you are welcome to redistribute it");
         System.out.println("under certain conditions");
+        System.out.print("Version ");
+        System.out.println(Version.version());
 
         if(checkArgs(args.length))
         {

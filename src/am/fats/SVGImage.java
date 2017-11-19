@@ -57,6 +57,17 @@ public class SVGImage extends SVGElement
         double horizontalPixelSizeMM = width / pixWidth;
         double verticalPixelSizeMM = height / pixHeight;
 
+        String header = String.format("Image w:%d h:%d", pixWidth, pixHeight);
+        GCodeComment imageHeader = new GCodeComment(header);
+        mGCode.writeLine(imageHeader);
+
+        if(horizontalPixelSizeMM < 0.25 || verticalPixelSizeMM < 0.25)
+        {
+            String warnText = String.format("Warning: Image resolution is low h:%.4f v:.%4f",
+                    horizontalPixelSizeMM, verticalPixelSizeMM);
+            GCodeComment warning = new GCodeComment(warnText);
+        }
+
         IntBuffer greyMap = ByteBuffer.allocate(pixWidth * pixHeight * 4).asIntBuffer();
 
         for(int i=0; i<pixHeight; i++)

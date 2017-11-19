@@ -33,5 +33,6 @@ public class SVGPolygon extends SVGPolyline
         GCodeLine line = new GCodeLine(mStartPoint.x, mStartPoint.y);
         line.setTransformationStack(trans);
         gcode.writeLine(line.toString());
+        headUp(gcode);
     }
 }

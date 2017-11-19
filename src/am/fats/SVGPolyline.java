@@ -68,6 +68,7 @@ public class SVGPolyline extends SVGElement
                 line.setTransformationStack(trans);
                 gcode.writeLine(line.toString());
             }
+            headUp(gcode);
         }
 
     }
