@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <material name="Laser and Card">
-	<Light  	feedrate="800" power="32"  repeat="1" hexcode="#ff0000" tool="2"/>
-	<Medium 	feedrate="400" power="64"  repeat="1" hexcode="#0000ff" tool="2"/>
-	<Dark 		feedrate="200" power="128" repeat="1" hexcode="#00ff00" tool="2"/>
-	<Cut 		feedrate="200" power="255" repeat="1" hexcode="#000000" tool="2"/>
+	<Light  	feedrate="800" power="32"  repeat="1" hexcode="#ff0000" tool="laser"/>
+	<Medium 	feedrate="400" power="64"  repeat="1" hexcode="#0000ff" tool="laser"/>
+	<Dark 		feedrate="200" power="128" repeat="1" hexcode="#00ff00" tool="laser"/>
+	<Cut 		feedrate="200" power="255" repeat="1" hexcode="#000000" tool="laser"/>
 </material>

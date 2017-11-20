@@ -52,7 +52,11 @@ public class SVGPath_Command
         gcode.writeLine(c.toString());
     }
 
+
     protected void headUp(FileLineWriter gcode) throws IOException {
+        if(!PlotterState.isHeadDown())
+            return;
+
         StringBuilder toolStr = new StringBuilder();
 
         switch(Tool.currentTool())
@@ -66,12 +70,14 @@ public class SVGPath_Command
                 toolStr.append(laser.toString());
                 break;
         }
-        toolStr.append(System.lineSeparator());
 
         gcode.writeLine(toolStr.toString());
     }
 
     protected void headDown(FileLineWriter gcode) throws IOException {
+        if(PlotterState.isHeadDown())
+            return;
+
         StringBuilder toolStr = new StringBuilder();
 
         switch(Tool.currentTool())
@@ -85,7 +91,6 @@ public class SVGPath_Command
                 toolStr.append(laser.toString());
                 break;
         }
-        toolStr.append(System.lineSeparator());
 
         gcode.writeLine(toolStr.toString());
     }
