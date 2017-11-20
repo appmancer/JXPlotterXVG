@@ -1,4 +1,4 @@
 <?xml version="1.0" standalone="no"?>
 <material name="Pen and Paper">
-	<Light  	feedrate="800" power="255" repeat="1" hexcode="#00ff00" tool="1"/>
+	<Light  	feedrate="800" power="255" repeat="1" hexcode="#0000ff" tool="pen"/>
 </material>

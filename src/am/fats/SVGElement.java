@@ -44,15 +44,48 @@ public class SVGElement
         return output;
     }
 
-    public void headDown(FileWriter gcode)
-    {
+    protected void headUp(FileLineWriter gcode) throws IOException {
+        if(!PlotterState.isHeadDown())
+            return;
 
+        StringBuilder toolStr = new StringBuilder();
+
+        switch(Tool.currentTool())
+        {
+            case Tool.TOOL_PEN:
+                GCodePenUp pen = new GCodePenUp();
+                toolStr.append(pen.toString());
+                break;
+            case Tool.TOOL_LASER:
+                GCodeLaserOff laser = new GCodeLaserOff();
+                toolStr.append(laser.toString());
+                break;
+        }
+
+        gcode.writeLine(toolStr.toString());
     }
 
-    public void headUp(FileWriter gcode)
-    {
+    protected void headDown(FileLineWriter gcode) throws IOException {
+        if(PlotterState.isHeadDown())
+            return;
 
+        StringBuilder toolStr = new StringBuilder();
+
+        switch(Tool.currentTool())
+        {
+            case Tool.TOOL_PEN:
+                GCodePenDown pen = new GCodePenDown();
+                toolStr.append(pen.toString());
+                break;
+            case Tool.TOOL_LASER:
+                GCodeLaserOn laser = new GCodeLaserOn();
+                toolStr.append(laser.toString());
+                break;
+        }
+
+        gcode.writeLine(toolStr.toString());
     }
+
 
     public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException {
         //Virtual method should be implemented
