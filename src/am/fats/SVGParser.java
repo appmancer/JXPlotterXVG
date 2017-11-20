@@ -75,6 +75,20 @@ public class SVGParser extends DefaultHandler
 
         //Finish the gcode
         //Switch off tool
+        if(PlotterState.isHeadDown())
+        {
+            if(Tool.currentTool() == Tool.TOOL_LASER)
+            {
+                GCodeLaserOff off = new GCodeLaserOff();
+                mGCode.writeLine(off.toString());
+            }
+            else
+            {
+                GCodePenUp up = new GCodePenUp();
+                mGCode.writeLine(up.toString());
+            }
+        }
+
         mGCode.writeLine("G28"); //Reset to origin
 
         //enable screen
