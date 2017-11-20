@@ -59,13 +59,14 @@ public class SVGImage extends SVGElement
 
         String header = String.format("Image w:%d h:%d", pixWidth, pixHeight);
         GCodeComment imageHeader = new GCodeComment(header);
-        mGCode.writeLine(imageHeader);
+        mGCode.writeLine(imageHeader.toString());
 
-        if(horizontalPixelSizeMM < 0.25 || verticalPixelSizeMM < 0.25)
+        if(horizontalPixelSizeMM > 0.25 || verticalPixelSizeMM > 0.25)
         {
             String warnText = String.format("Warning: Image resolution is low h:%.4f v:.%4f",
                     horizontalPixelSizeMM, verticalPixelSizeMM);
             GCodeComment warning = new GCodeComment(warnText);
+            mGCode.writeLine(warning.toString());
         }
 
         IntBuffer greyMap = ByteBuffer.allocate(pixWidth * pixHeight * 4).asIntBuffer();
@@ -108,13 +109,13 @@ public class SVGImage extends SVGElement
             for (int j = 0; j < pixWidth; j++) {
                 int nextShade = greyMap.get(i*pixWidth + j);
                 if (nextShade != currentShade) {
-                    endX = j;
-                    currentShade = nextShade;
+                    endX = j-1;
                     if (startX < endX) {
                         //Draw a line!
                         drawPixels(attX + endX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM, currentShade);
                         startX = endX;
                     }
+                    currentShade = nextShade;
                 }
             } //End of line
             //Do we need to draw to end of line?
@@ -162,14 +163,24 @@ public class SVGImage extends SVGElement
 
     private void drawPixels(double endx, double endy, int power) throws IOException {
         //Draw a line!
-        if(Tool.currentTool() == Tool.TOOL_LASER)
+        if(power == 0)
         {
-            Tool.setPower(255 - power);
-            GCodeLaserOn on = new GCodeLaserOn();
-            mGCode.writeLine(on.toString());
+            headUp(mGCode);
+            GCodeMove lineMove = new GCodeMove(endx, endy);
+            lineMove.setTransformationStack(mTrans);
+            mGCode.writeLine(lineMove.toString());
         }
-        GCodeLine line = new GCodeLine(endx, endy);
-        line.setTransformationStack(mTrans);
-        mGCode.writeLine(line.toString());
+        else
+        {
+            if(Tool.currentTool() == Tool.TOOL_LASER)
+            {
+                Tool.setPower(255 - power);
+                GCodeLaserOn on = new GCodeLaserOn();
+                mGCode.writeLine(on.toString());
+            }
+            GCodeLine line = new GCodeLine(endx, endy);
+            line.setTransformationStack(mTrans);
+            mGCode.writeLine(line.toString());
+        }
     }
 }
