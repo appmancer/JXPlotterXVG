@@ -27,7 +27,8 @@ public class SVGPolyline extends SVGElement
         mElementName = "polyline";
     }
 
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    @Override
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         GCodeComment startComment = new GCodeComment("Starting Polyline");
         gcode.writeLine(startComment.toString());
@@ -58,14 +59,14 @@ public class SVGPolyline extends SVGElement
                 mStartPoint = points.getFirst();
                 points.removeFirst();
                 GCodeMove move = new GCodeMove(mStartPoint.x, mStartPoint.y);
-                move.setTransformationStack(trans);
+                move.setTransformationStack(mTrans);
                 gcode.writeLine(move.toString());
                 headDown(gcode);
             }
             for(Point2D nextPoint : points)
             {
                 GCodeLine line = new GCodeLine(nextPoint.x, nextPoint.y);
-                line.setTransformationStack(trans);
+                line.setTransformationStack(mTrans);
                 gcode.writeLine(line.toString());
             }
             headUp(gcode);

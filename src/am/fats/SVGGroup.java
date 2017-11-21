@@ -24,7 +24,7 @@ public class SVGGroup extends SVGElement
     }
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         //Deliberately blank
     }

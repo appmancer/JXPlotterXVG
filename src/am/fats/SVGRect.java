@@ -23,7 +23,8 @@ public class SVGRect extends SVGElement
         mElementName = "rect";
     }
 
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    @Override
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         double startX      = 0;
         double startY      = 0;
@@ -37,7 +38,7 @@ public class SVGRect extends SVGElement
 
         //We have all of the value from the attributes
         GCodeRect rect = new GCodeRect(startX, startY, rectWidth, rectHeight);
-        rect.setTransformationStack(trans);
+        rect.setTransformationStack(mTrans);
         gcode.writeLine(rect.toString());
     }
 }

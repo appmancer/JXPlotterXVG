@@ -23,15 +23,15 @@ public class SVGPolygon extends SVGPolyline
         mElementName = "polygon";
     }
 
-
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    @Override
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
-        super.process(atts, gcode, trans);
+        super.process(atts, gcode);
 
         //For the polygon we have to draw a line back to the start
         headDown(gcode);
         GCodeLine line = new GCodeLine(mStartPoint.x, mStartPoint.y);
-        line.setTransformationStack(trans);
+        line.setTransformationStack(mTrans);
         gcode.writeLine(line.toString());
         headUp(gcode);
     }

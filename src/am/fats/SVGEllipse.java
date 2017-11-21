@@ -24,7 +24,7 @@ public class SVGEllipse extends SVGElement
     }
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         //We need to extract the start X, Y and radius attributes.
         double startX      = 0;
@@ -48,7 +48,7 @@ public class SVGEllipse extends SVGElement
         //We have all of the value from the attributes
 
         GCodeEllipse ellipse = new GCodeEllipse(startX, startY, radiusX, radiusY);
-        ellipse.setTransformationStack(trans);
+        ellipse.setTransformationStack(mTrans);
 
         gcode.writeLine(ellipse.toString());
     }

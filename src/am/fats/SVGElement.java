@@ -13,13 +13,20 @@
 package am.fats;
 
 import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayDeque;
 
-public class SVGElement
+public class SVGElement extends DefaultHandler
 {
     protected String mElementName;
     protected boolean mIsOk;
+    protected TransformationStack mTrans;
+
+    protected static ArrayDeque<TransformationStack> sStack = new ArrayDeque<>();
 
     public SVGElement()
     {
@@ -87,7 +94,39 @@ public class SVGElement
     }
 
 
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException {
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException {
         //Virtual method should be implemented
+    }
+
+    public void preProcess(Attributes atts)
+    {
+        if(sStack.size() > 0)
+        {
+            mTrans = sStack.peekLast().clone();
+        }
+        else
+        {
+            mTrans = new TransformationStack();
+        }
+
+        //Get any transformations that need to be applied
+        String transformationData = atts.getValue("transform");
+        if(transformationData == null)
+            transformationData = "";
+        if(transformationData.trim().length() > 0)
+        {
+
+            TransformationParser tparser = new TransformationParser();
+            mTrans = tparser.process(transformationData, mTrans);
+        }
+
+        sStack.addLast(mTrans);
+    }
+
+
+    public void postProcess()
+    {
+        if(sStack.size() > 0)
+            sStack.removeLast();
     }
 }
