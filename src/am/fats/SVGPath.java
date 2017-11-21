@@ -26,7 +26,7 @@ public class SVGPath extends SVGElement
 
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         //a path element will typically hold a lot of movement data as a property.  Its the complete hack that holds SVG together
         //This data will contain commands and data.
@@ -118,7 +118,7 @@ public class SVGPath extends SVGElement
             if(commands.contains(nextCommand))
             {
                 lastCommand = nextCommand;
-                switchCommand(commandQueue, nextCommand, gcode, trans.clone());
+                switchCommand(commandQueue, nextCommand, gcode);
             }
             else
             {
@@ -130,102 +130,102 @@ public class SVGPath extends SVGElement
         gcode.writeLine(endComment.toString());
     }
     
-    protected void switchCommand(ArrayDeque<String> commandQueue, String currentCommand, FileLineWriter gcode, TransformationStack trans) throws IOException
+    protected void switchCommand(ArrayDeque<String> commandQueue, String currentCommand, FileLineWriter gcode) throws IOException
     {
         if(currentCommand.contentEquals("M"))
         {
             SVGPath_Move_Abs mabs = new SVGPath_Move_Abs();
-            mabs.process(commandQueue, gcode, trans);
+            mabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("m"))
         {
             SVGPath_Move_Rel mrel = new SVGPath_Move_Rel();
-            mrel.process(commandQueue, gcode, trans);
+            mrel.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.toUpperCase().contentEquals("Z"))
         {
             SVGPath_ClosePath cpath = new SVGPath_ClosePath();
-            cpath.process(commandQueue, gcode, trans);
+            cpath.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("L"))
         {
             SVGPath_Line_Abs labs = new SVGPath_Line_Abs();
-            labs.process(commandQueue, gcode, trans);
+            labs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("l"))
         {
             SVGPath_Line_Rel lrel = new SVGPath_Line_Rel();
-            lrel.process(commandQueue, gcode, trans);
+            lrel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("H"))
         {
             SVGPath_Horizontal_Line_Abs hlabs = new SVGPath_Horizontal_Line_Abs();
-            hlabs.process(commandQueue, gcode, trans);
+            hlabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("h"))
         {
             SVGPath_Horizontal_Line_Rel hlrel = new SVGPath_Horizontal_Line_Rel();
-            hlrel.process(commandQueue, gcode, trans);
+            hlrel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("V"))
         {
             SVGPath_Vertical_Line_Abs vlabs = new SVGPath_Vertical_Line_Abs();
-            vlabs.process(commandQueue, gcode, trans);
+            vlabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("v"))
         {
             SVGPath_Vertical_Line_Rel vlrel = new SVGPath_Vertical_Line_Rel();
-            vlrel.process(commandQueue, gcode, trans);
+            vlrel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("C"))
         {
             SVGPath_Curve_Abs cabs = new SVGPath_Curve_Abs();
-            cabs.process(commandQueue, gcode, trans);
+            cabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("c"))
         {
             SVGPath_Curve_Rel crel = new SVGPath_Curve_Rel();
-            crel.process(commandQueue, gcode, trans);
+            crel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("S"))
         {
             SVGPath_SmoothTo_Abs sabs = new SVGPath_SmoothTo_Abs();
-            sabs.process(commandQueue, gcode, trans);
+            sabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("s"))
         {
             SVGPath_SmoothTo_Rel srel = new SVGPath_SmoothTo_Rel();
-            srel.process(commandQueue, gcode, trans);
+            srel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("Q"))
         {
             SVGPath_Quadratic_Curve_Abs qcabs = new SVGPath_Quadratic_Curve_Abs();
-            qcabs.process(commandQueue, gcode, trans);
+            qcabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("q"))
         {
             SVGPath_Quadratic_Curve_Rel qcrel = new SVGPath_Quadratic_Curve_Rel();
-            qcrel.process(commandQueue, gcode, trans);
+            qcrel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("T"))
         {
             SVGPath_Quadratic_SmoothTo_Abs qsabs = new SVGPath_Quadratic_SmoothTo_Abs();
-            qsabs.process(commandQueue, gcode, trans);
+            qsabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("t"))
         {
             SVGPath_Quadratic_SmoothTo_Rel qsrel = new SVGPath_Quadratic_SmoothTo_Rel();
-            qsrel.process(commandQueue, gcode, trans);
+            qsrel.process(commandQueue, gcode, mTrans.clone());
         }
         if(currentCommand.contentEquals("A"))
         {
             SVGPath_Elliptical_Arc_Abs eaabs = new SVGPath_Elliptical_Arc_Abs();
-            eaabs.process(commandQueue, gcode, trans);
+            eaabs.process(commandQueue, gcode, mTrans.clone());
         }
         else if(currentCommand.contentEquals("a"))
         {
             SVGPath_Elliptical_Arc_Rel earel = new SVGPath_Elliptical_Arc_Rel();
-            earel.process(commandQueue, gcode, trans);
+            earel.process(commandQueue, gcode, mTrans.clone());
         }
     }
 }

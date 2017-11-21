@@ -24,7 +24,7 @@ public class SVGLine extends SVGElement
     }
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         double startX    = 0;
         double startY    = 0;
@@ -41,12 +41,12 @@ public class SVGLine extends SVGElement
 
         headUp(gcode);
         GCodeMove move = new GCodeMove(startX, startY);
-        move.setTransformationStack(trans.clone());
+        move.setTransformationStack(mTrans);
         gcode.writeLine(move.toString());
 
         headDown(gcode);
         GCodeLine line = new GCodeLine(endX, endY);
-        line.setTransformationStack(trans.clone());
+        line.setTransformationStack(mTrans);
         gcode.writeLine(line.toString());
     }
 

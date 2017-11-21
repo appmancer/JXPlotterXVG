@@ -24,7 +24,7 @@ public class SVGCircle extends SVGElement
     }
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException {
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException {
         //We need to extract the start X, Y and radius attributes.
         double startX      = 0;
         double startY      = 0;
@@ -35,7 +35,7 @@ public class SVGCircle extends SVGElement
         radius      = Double.parseDouble(atts.getValue("r"));
         //We have all of the value from the attributes
         GCodeCircle circle = new GCodeCircle(startX, startY, radius);
-        circle.setTransformationStack(trans);
+        circle.setTransformationStack(mTrans);
 
         gcode.writeLine(circle.toString());
     }

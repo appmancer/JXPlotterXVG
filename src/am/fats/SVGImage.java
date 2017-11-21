@@ -29,9 +29,8 @@ public class SVGImage extends SVGElement
     }
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
-        mTrans = trans.clone();
         mGCode = gcode;
 
         //Get the base64 encoded image
@@ -101,7 +100,7 @@ public class SVGImage extends SVGElement
             gcode.writeLine(laserOff.toString());
 
             GCodeMove move = new GCodeMove(attX, attY + i * verticalPixelSizeMM);
-            move.setTransformationStack(trans);
+            move.setTransformationStack(mTrans);
             gcode.writeLine(move.toString());
 
             //Left to right

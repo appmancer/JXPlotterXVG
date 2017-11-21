@@ -24,7 +24,7 @@ public class SVGDesc extends SVGElement
     }
 
     @Override
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         //TODO : The different SAX parser has broken this model
     }

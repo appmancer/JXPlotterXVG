@@ -18,7 +18,14 @@ public class GCodeCommand
 
     public void setTransformationStack(TransformationStack trans)
     {
-        mTrans = trans.clone();
+        if(trans == null)
+        {
+            mTrans = new TransformationStack();
+        }
+        else
+        {
+            mTrans = trans.clone();
+        }
     }
 
     public String toString()

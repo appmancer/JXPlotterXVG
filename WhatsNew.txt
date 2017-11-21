@@ -1,0 +1,5 @@
+XPlotterSVG - What's New?
+
+1.1.0
+This What's New? document
+Recursive application of the transformations for much better Inkscape support

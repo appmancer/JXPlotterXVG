@@ -22,6 +22,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayDeque;
 
 public class SVGParser extends DefaultHandler
 {
@@ -31,6 +32,7 @@ public class SVGParser extends DefaultHandler
     protected SVGElement[] mElements = { new SVGCircle(), new SVGEllipse(), new SVGPolyline(), new SVGPath(),
                         new SVGGroup(), new SVGLine(), new SVGPolygon(), new SVGRect(), new SVGImage()};
     protected SVGSvg mSVGElement = new SVGSvg();
+    org.xml.sax.XMLReader mSVGReader;
 
     public void process(String inputSVGFileName, FileLineWriter gcode) throws IOException
     {
@@ -52,15 +54,14 @@ public class SVGParser extends DefaultHandler
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
         SAXParser saxParser;
-        org.xml.sax.XMLReader svgReader;
         try {
             saxParser = spf.newSAXParser();
 
             //Open the input SVG
-            svgReader = saxParser.getXMLReader();
+            mSVGReader = saxParser.getXMLReader();
             try {
-                svgReader.setContentHandler(this);
-                svgReader.parse(inputSVGFileName);
+                mSVGReader.setContentHandler(this);
+                mSVGReader.parse(inputSVGFileName);
             } catch (IOException e) {
                 System.out.print("Cannot open SVG file "); System.out.println(inputSVGFileName);
                 e.printStackTrace();
@@ -101,23 +102,13 @@ public class SVGParser extends DefaultHandler
         if(localName.contentEquals("svg"))
         {
             try {
-                mSVGElement.process(atts, mGCode, mTrans);
+                mSVGElement.process(atts, mGCode);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
         CutSpecification spec = findSpecfication(atts);
-        TransformationStack thisTrans = mTrans.clone();
-        //Get any transformations that need to be applied
-        String transformationData = atts.getValue("transform");
-        if(transformationData == null)
-            transformationData = "";
-        if(transformationData.trim().length() > 0)
-        {
-            TransformationParser tparser = new TransformationParser();
-            thisTrans = tparser.process(transformationData, thisTrans);
-        }
 
         //Another special case - TODO: redesign
         if(localName.toLowerCase().contentEquals("image"))
@@ -125,27 +116,55 @@ public class SVGParser extends DefaultHandler
             spec = Material.getSpecification("raster");
         }
 
-        if(spec != null)
+        for(SVGElement elem : mElements)
         {
-            for(SVGElement elem : mElements)
+            if(elem.acceptsElement(localName))
             {
-                if(elem.acceptsElement(localName))
-                {
-                    try {
-                        configureTool(spec);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    configureTool(spec);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
+                //This is the static setup method
+                elem.preProcess(atts);
+
+                //Only process if we have a material spec. We have to go this far
+                //because we might need the transformations, even if there is nothing
+                //to plot.
+                if(spec != null)
+                {
                     for(int i=0; i < spec.getRepeat(); i++)
                     {
-                        try {
-                            elem.process(atts, mGCode, thisTrans.clone());
-                        } catch (IOException e) {
+                        try
+                        {
+                            //This is the instance method
+                            elem.process(atts, mGCode);
+                        }
+                        catch (IOException e)
+                        {
                             e.printStackTrace();
                         }
                     }
                 }
+            }
+        }
+
+    }
+
+    public void endElement(String uri, String localName, String qName)
+    {
+        //TODO:  I can see that this is a massive hack.
+        //really it needs to be a proper reentrant recursive routine
+        //but the SAX parser doesn't work like that.  I need to think about
+        //how to process the SVG because its the SAX that is letting me down.
+
+        //We have to check again to see if we recognise this element
+        for(SVGElement elem : mElements)
+        {
+            if (elem.acceptsElement(localName))
+            {
+                elem.postProcess();
             }
         }
     }

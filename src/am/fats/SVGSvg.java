@@ -23,7 +23,8 @@ public class SVGSvg extends SVGElement
         mElementName = "svg";
     }
 
-    public void process(Attributes atts, FileLineWriter gcode, TransformationStack trans) throws IOException
+    @Override
+    public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
         String[] dimensions = atts.getValue("viewBox").split(" ");
         if(dimensions.length == 4) {
