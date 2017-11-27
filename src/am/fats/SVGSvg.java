@@ -26,7 +26,12 @@ public class SVGSvg extends SVGElement
     @Override
     public void process(Attributes atts, FileLineWriter gcode) throws IOException
     {
-        String[] dimensions = atts.getValue("viewBox").split(" ");
+        String tempC = atts.getValue("viewBox");
+        if(tempC == null || tempC.length() == 0)
+        {
+            tempC = "1 1 300 240";//Default XPlotter view
+        }
+        String[] dimensions = tempC.split(" ");
         if(dimensions.length == 4) {
             double rectWidth = Double.parseDouble(dimensions[2]);
             double rectHeight = Double.parseDouble(dimensions[3]);
