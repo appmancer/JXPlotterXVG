@@ -1,5 +1,8 @@
 XPlotterSVG - What's New?
 
+1.1.1
+User localisation no longer affects the output. Format is always 1234.5678, rather than 1.234,5678 in some locations.
+
 1.1.0
 This What's New? document
 Recursive application of the transformations for much better Inkscape support
