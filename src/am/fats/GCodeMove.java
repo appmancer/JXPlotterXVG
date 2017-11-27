@@ -12,6 +12,10 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 package am.fats;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 public class GCodeMove extends GCodeCommand
 {
     protected double endX;
@@ -49,10 +53,18 @@ public class GCodeMove extends GCodeCommand
 
         StringBuilder gcode = new StringBuilder();
 
+        Locale currentLocale = Locale.getDefault();
+        DecimalFormatSymbols otherSymbols = new DecimalFormatSymbols(currentLocale);
+        otherSymbols.setDecimalSeparator('.');
+        DecimalFormat df = new DecimalFormat("0.####", otherSymbols);
+        df.setGroupingUsed(false);
+
         gcode.append("G0 X");
-        gcode.append(String.format("%8f",translatedPoint.x));
+        gcode.append(df.format(translatedPoint.x));
+        //gcode.append(String.format("%8f",translatedPoint.x));
         gcode.append(" Y");
-        gcode.append(String.format("%8f", viewY - translatedPoint.y));
+        gcode.append(df.format(viewY - translatedPoint.y));
+        //gcode.append(String.format("%8f", viewY - translatedPoint.y));
         //For Candle to show the rendering, we need to add a Z axis. The XPlotter ignores this value
         gcode.append(" Z -1.000");
         gcode.append(" F1200"); //Override feed rate, we're just moving

@@ -7,6 +7,6 @@
 
   <!-- Show outline of canvas using 'rect' element -->
 
-  <rect x="1" y="1" width="1198" height="398"
+  <rect x="1" y="1" width="11.98" height="39.8"
         fill="none" stroke="#0000ff" stroke-width="2"/>
 </svg>
