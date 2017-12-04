@@ -24,7 +24,7 @@ Clone and build from this repo, or just [download from here](http://fats.am/XPlo
 
 ## Creating the SVG file
 You might already have a design in an editor like [Inkscape.](https://inkscape.org/en/) To prepare your design for conversion,
-I recommend that you copy your design into the [template](https://github.com/appmancer/JXPlotterSVG/blob/master/XPlotterTemplate.svg) I've designed.
+I recommend that you copy your design into the [template](https://fats.am/XPlotterSVG/XPlotterTemplate.svg) I've designed.
 This template creates a workspace 240x300mm, the working space of the XPlotter.
 
 ## Using a material file

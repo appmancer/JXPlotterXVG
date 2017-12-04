@@ -1,5 +1,9 @@
 XPlotterSVG - What's New?
 
+1.1.2
+SVG files without a viewbox specified will no longer crash, but a viewbox of 240x300 will be assumed.
+Elliptical arc now correctly activates the head.
+
 1.1.1
 User localisation no longer affects the output. Format is always 1234.5678, rather than 1.234,5678 in some locations.
 
