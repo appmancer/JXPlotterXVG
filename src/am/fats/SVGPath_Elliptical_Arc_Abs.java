@@ -168,6 +168,8 @@ public class SVGPath_Elliptical_Arc_Abs extends SVGPath_Command
         double step = deltaTheta / steps;
         double theta = theta1;
 
+        headDown(mGCode);
+
         for(int i = 0; i < steps; ++i, theta += step)
         {
             Point2D m1 = new Point2D();
