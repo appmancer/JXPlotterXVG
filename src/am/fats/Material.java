@@ -20,16 +20,18 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Material extends DefaultHandler
 {
-    protected static HashMap<String, CutSpecification> sSpecs;
+    protected static ArrayDeque<CutSpecification> sSpecs;
     protected static String sName;
 
     public static void load (String materialFileName)
     {
-        sSpecs = new HashMap<String, CutSpecification>();
+        sSpecs = new ArrayDeque<CutSpecification>();
 
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
@@ -68,19 +70,32 @@ public class Material extends DefaultHandler
         {
             //Other start elements name cut specifications
             CutSpecification newSpec = new CutSpecification(localName);
+
             //Get the properties from the attributes
-            newSpec.setFeedrate(Integer.parseInt(atts.getValue("feedrate")));
-            newSpec.setPower(Integer.parseInt(atts.getValue("power")));
-            newSpec.setRepeat(Integer.parseInt(atts.getValue("repeat")));
+            if(atts.getValue("feedrate") != null) {
+                //This assumes that if we have feedrate, then we will have the other values as well
+                newSpec.setFeedrate(Integer.parseInt(atts.getValue("feedrate")));
+                newSpec.setPower(Integer.parseInt(atts.getValue("power")));
+                newSpec.setRepeat(Integer.parseInt(atts.getValue("repeat")));
+            }
+
             newSpec.setTool(atts.getValue("tool"));
             newSpec.setHexCode(atts.getValue("hexcode"));
 
-            sSpecs.put(atts.getValue("hexcode"), newSpec);
+            sSpecs.add(newSpec);
         }
     }
 
-    public static CutSpecification getSpecification(String hexcode)
+    public static ArrayList<CutSpecification> getSpecification(String hexcode)
     {
-        return sSpecs.get(hexcode);
+        ArrayList<CutSpecification> returnArray = new ArrayList<CutSpecification>();
+        for(CutSpecification cut : sSpecs)
+        {
+            if(cut.getHexCode().equals(hexcode))
+            {
+                returnArray.add(cut);
+            }
+        }
+        return returnArray;
     }
 }

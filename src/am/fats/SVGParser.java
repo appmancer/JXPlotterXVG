@@ -23,6 +23,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 
 public class SVGParser extends DefaultHandler
 {
@@ -108,42 +109,40 @@ public class SVGParser extends DefaultHandler
             }
         }
 
-        CutSpecification spec = findSpecfication(atts);
+        ArrayList<CutSpecification> specs = findSpecfication(atts);
 
         //Another special case - TODO: redesign
         if(localName.toLowerCase().contentEquals("image"))
         {
-            spec = Material.getSpecification("raster");
+            specs = Material.getSpecification("raster");
         }
 
         for(SVGElement elem : mElements)
         {
             if(elem.acceptsElement(localName))
             {
-                try {
-                    configureTool(spec);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
                 //This is the static setup method
                 elem.preProcess(atts);
 
-                //Only process if we have a material spec. We have to go this far
-                //because we might need the transformations, even if there is nothing
-                //to plot.
-                if(spec != null)
-                {
-                    for(int i=0; i < spec.getRepeat(); i++)
-                    {
-                        try
-                        {
-                            //This is the instance method
-                            elem.process(atts, mGCode);
-                        }
-                        catch (IOException e)
-                        {
-                            e.printStackTrace();
+                //There might be multiple specs, so process for each
+                for(CutSpecification spec : specs) {
+                    try {
+                        configureTool(spec);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    //Only process if we have a material spec. We have to go this far
+                    //because we might need the transformations, even if there is nothing
+                    //to plot.
+                    if (spec != null) {
+                        for (int i = 0; i < spec.getRepeat(); i++) {
+                            try {
+                                //This is the instance method
+                                elem.process(atts, mGCode);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -169,9 +168,9 @@ public class SVGParser extends DefaultHandler
         }
     }
 
-    protected CutSpecification findSpecfication(Attributes atts)
+    protected ArrayList<CutSpecification> findSpecfication(Attributes atts)
     {
-        CutSpecification spec = null;
+        ArrayList<CutSpecification> spec = null;
         String hexcode = atts.getValue("stroke");
         if(hexcode == null)
             hexcode = "";
