@@ -78,6 +78,10 @@ public class Material extends DefaultHandler
                 newSpec.setPower(Integer.parseInt(atts.getValue("power")));
                 newSpec.setRepeat(Integer.parseInt(atts.getValue("repeat")));
             }
+            if(atts.getValue("dwell") != null)
+            {
+                newSpec.setDwell(Integer.parseInt(atts.getValue("dwell")));
+            }
 
             newSpec.setTool(atts.getValue("tool"));
             newSpec.setHexCode(atts.getValue("hexcode"));

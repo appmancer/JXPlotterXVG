@@ -20,11 +20,13 @@ public class CutSpecification
     protected int mPower;
     protected int mRepeat;
     protected int mTool;
+    protected int mDwell;
     protected String mHexCode;
 
     public CutSpecification(String name)
     {
         mName = name;
+        mDwell = 0;
     }
 
     public void setName(String name)
@@ -65,6 +67,16 @@ public class CutSpecification
     public int getRepeat()
     {
         return mRepeat;
+    }
+
+    public void setDwell(int dwell)
+    {
+        mDwell = dwell;
+    }
+
+    public int getDwell()
+    {
+        return mDwell;
     }
 
     public void setTool(String tool)

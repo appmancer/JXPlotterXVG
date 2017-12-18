@@ -58,6 +58,8 @@ on the medium, plus a setting to cut through the wood.
 You can create as many different settings as you need in one file, but 
 ensure that each setting has a unique hexcode.
 
+You can download [example material files here](http://fats.am/XPlotterSVG/materials.zip).
+
 ## Raster images
 The exception is handling raster images.  You can include raster images (like colour photos)
 in your SVG and they will be converted.  Because you can't set the colour on the raster image
@@ -78,6 +80,35 @@ for it to convert.  Text is a good example.
 
 To use text in your design, before you convert, select the text, and the Path, and Object to Path.  You wont be able
 to edit your text now, but it will convert correctly for plotting.
+
+## Multiple steps
+If you find that your XPlotter needs to repeat the same design with different settings to get a good quality cut, then
+you can use more than one entry for the same hexcode.  All the steps will be performed in the order that they appear
+in the XML
+```
+<?xml version="1.0" standalone="no"?>
+<material name="Laser and 3mm Plywood">
+	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="laser"/>
+	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="laser"/>
+	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="laser"/>
+	<Score 		feedrate="800" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
+	<Burn 		feedrate="100" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
+	<Finish 	feedrate="400" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
+	<Raster		feedrate="400" power="255" repeat="1" hexcode="raster"  tool="laser"/>
+</material>
+```
+
+## Changing the focus length
+Some XPlotter users find that they need to refocus the laser or raise the bed during a cut.  You can add a number
+of seconds to delay after all repetitions to give you a change to make the adjustment by setting the number of seconds
+in the 'dwell' attribute.
+
+## Activating the 'Pause' button
+Unlike the software from Pinecode, this program does not disable the 'Pause' button by default.  You can create a gcode file
+with the pause disabled by adding the attribute --nopause as a final command.  e.g.
+```
+java -jar XPlotterSVG.jar MyDesign.svg laser+card.xml XPLOTTER.G --nopause
+```
 
 ## Preparing your design
 1. In Inkscape, check that your shapes have the correct hexcode.

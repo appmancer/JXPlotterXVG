@@ -35,7 +35,7 @@ public class SVGParser extends DefaultHandler
     protected SVGSvg mSVGElement = new SVGSvg();
     org.xml.sax.XMLReader mSVGReader;
 
-    public void process(String inputSVGFileName, FileLineWriter gcode) throws IOException
+    public void process(String inputSVGFileName, FileLineWriter gcode, Boolean pause) throws IOException
     {
         mGCode = gcode;
         mTrans = new TransformationStack();
@@ -47,7 +47,8 @@ public class SVGParser extends DefaultHandler
         mGCode.writeLine(opening.toString());
 
         //We have an open SVG.  Write out the standard header
-        mGCode.writeLine("M0"); //Disable screen
+        if(!pause)
+            mGCode.writeLine("M0"); //Disable screen
         mGCode.writeLine("G21"); //Units in mm
         mGCode.writeLine("G28"); //Reset to origin
         mGCode.writeLine("G90"); //All positions are absolute
@@ -94,7 +95,8 @@ public class SVGParser extends DefaultHandler
         mGCode.writeLine("G28"); //Reset to origin
 
         //enable screen
-        mGCode.writeLine("M1");
+        if(!pause)
+            mGCode.writeLine("M1");
     }
 
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts)
@@ -137,14 +139,26 @@ public class SVGParser extends DefaultHandler
                     //to plot.
                     if (spec != null) {
                         for (int i = 0; i < spec.getRepeat(); i++) {
+                           //This is the instance method
                             try {
-                                //This is the instance method
                                 elem.process(atts, mGCode);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                        //Process any dwell command
+                        if(spec.getDwell() > 0)
+                        {
+                            GCodeDwell dwell = new GCodeDwell(spec.getDwell());
+                            try {
+                                mGCode.writeLine(dwell.toString());
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
+
                 }
             }
         }

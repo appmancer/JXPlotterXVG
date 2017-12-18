@@ -60,11 +60,21 @@ public class Main {
                 return;
             }
 
+            //Check the nopause option
+            Boolean pause = true;
+            if(args.length > 3)
+            {
+                if(args[3].equals("--nopause"))
+                {
+                    pause = false;
+                }
+            }
+
             //Create an instance of the parser
             SVGParser parser = new SVGParser();
 
             //Parse!
-            parser.process(inputSVGFileName, gcode);
+            parser.process(inputSVGFileName, gcode, pause);
 
             //Close the output file
             try {
