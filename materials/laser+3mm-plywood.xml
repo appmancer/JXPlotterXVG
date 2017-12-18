@@ -3,6 +3,9 @@
 	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="laser"/>
 	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="laser"/>
 	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="laser"/>
-	<Cut 		feedrate="100" power="255" repeat="4" hexcode="#000000" tool="laser"/>
+	<Score 		feedrate="800" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
+	<Burn 		feedrate="100" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
+	<Finish 	feedrate="400" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
 	<Raster		feedrate="400" power="255" repeat="1" hexcode="raster"  tool="laser"/>
 </material>
+
