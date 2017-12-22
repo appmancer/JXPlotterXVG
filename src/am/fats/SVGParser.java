@@ -184,7 +184,7 @@ public class SVGParser extends DefaultHandler
 
     protected ArrayList<CutSpecification> findSpecfication(Attributes atts)
     {
-        ArrayList<CutSpecification> spec = null;
+        ArrayList<CutSpecification> spec = new ArrayList<CutSpecification>();
         String hexcode = atts.getValue("stroke");
         if(hexcode == null)
             hexcode = "";
