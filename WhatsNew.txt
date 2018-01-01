@@ -1,5 +1,8 @@
 XPlotterSVG - What's New?
 
+1.2
+Filled SVG shapes.  Match the hexcode in your material file to shapes you want to be filled
+
 1.1.4
 Enable the 'pause' button on your XPlotter
 
