@@ -22,12 +22,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main {
+public class
+Main {
 
 
     public static void main(String[] args) throws IOException {
 
-	    System.out.println("XPlotterSVG Copyright (c) 2017 Samuel Pickard");
+	    System.out.println("XPlotterSVG Copyright (c) 2018 Samuel Pickard");
         System.out.println("This program comes with ABSOLUTELY NO WARRANTY.");
         System.out.println("This is free software, and you are welcome to redistribute it");
         System.out.println("under certain conditions");
@@ -82,6 +83,8 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+            System.out.println("Complete.");
         }
     }
 
@@ -94,7 +97,7 @@ public class Main {
     {
         if(argc < 3)
         {
-            printUsage();;
+            printUsage();
             return false;
         }
 

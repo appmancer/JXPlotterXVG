@@ -39,6 +39,8 @@ public class SVGImage extends SVGElement
         double width = Double.parseDouble(atts.getValue("width"));
         double height = Double.parseDouble(atts.getValue("height"));
 
+        int noLaserPower = 254;
+
         String base64 = atts.getValue("xlink:href");
 
         //Decode image
@@ -85,6 +87,8 @@ public class SVGImage extends SVGElement
         int currentShade = 0;
         double startX = 0;
         double endX = 0;
+        boolean hasStartedLine = false;
+
         GCodeComment startLR = new GCodeComment("Starting left to right");
         GCodeComment startRL = new GCodeComment("Starting right to left");
         //OK, we have a byte buffer with all of the pixel data, and the pixel size in millimeters.  How hard can it be?
@@ -96,29 +100,40 @@ public class SVGImage extends SVGElement
 
             gcode.writeLine(startLR);
 
-            GCodeLaserOff laserOff = new GCodeLaserOff();
-            gcode.writeLine(laserOff.toString());
-
-            GCodeMove move = new GCodeMove(attX, attY + i * verticalPixelSizeMM);
-            move.setTransformationStack(mTrans);
-            gcode.writeLine(move.toString());
+            if(hasStartedLine) {
+                GCodeLaserOff laserOff = new GCodeLaserOff();
+                gcode.writeLine(laserOff.toString());
+                hasStartedLine = false;
+            }
 
             //Left to right
             for (int j = 0; j < pixWidth; j++) {
                 int nextShade = greyMap.get(i*pixWidth + j);
                 if (nextShade != currentShade) {
                     endX = j;
-                    currentShade = nextShade;
                     if (startX < endX) {
-                        //Draw a line!
-                        drawPixels(attX + endX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM, currentShade);
+                        if(currentShade != noLaserPower) {
+                            //Draw a line!
+                            if (!hasStartedLine) {
+                                GCodeMove move = new GCodeMove(attX + startX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM);
+                                move.setTransformationStack(mTrans);
+                                gcode.writeLine(move.toString());
+                                hasStartedLine = true;
+                            }
+
+                            drawPixels(attX + endX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM, currentShade);
+                        }
                         startX = endX;
                     }
+                    currentShade = nextShade;
                 }
             } //End of line
             //Do we need to draw to end of line?
             if (endX < pixWidth) {
-                drawPixels(attX + width, attY + i * verticalPixelSizeMM, currentShade);
+                //if this is white - eg 0 laser power - then skip it
+                if(currentShade != noLaserPower) {
+                    drawPixels(attX + width, attY + i * verticalPixelSizeMM, currentShade);
+                }
             }
 
             //move on another line
@@ -128,10 +143,11 @@ public class SVGImage extends SVGElement
 
             gcode.writeLine(startRL);
 
-            gcode.writeLine(laserOff.toString());
-            move = new GCodeMove(attX+width, attY + i * verticalPixelSizeMM);
-            move.setTransformationStack(mTrans);
-            gcode.writeLine(move.toString());
+            if(hasStartedLine) {
+                GCodeLaserOff laserOff = new GCodeLaserOff();
+                gcode.writeLine(laserOff.toString());
+                hasStartedLine = false;
+            }
 
             startX = 0;
             endX = pixWidth;
@@ -141,17 +157,30 @@ public class SVGImage extends SVGElement
                 int nextShade = greyMap.get(i*pixWidth + j);
                 if (nextShade != currentShade) {
                     endX = j;
-                    currentShade = nextShade;
                     if (startX != endX) {
-                        //Draw a line!
-                        drawPixels(attX + endX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM, currentShade);
+                        if(currentShade != noLaserPower) {
+                            //Draw a line!
+                            if (!hasStartedLine) {
+                                GCodeMove move = new GCodeMove(attX + startX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM);
+                                move.setTransformationStack(mTrans);
+                                gcode.writeLine(move.toString());
+                                hasStartedLine = true;
+                            }
+
+                            //Draw a line!
+                            drawPixels(attX + endX * horizontalPixelSizeMM, attY + i * verticalPixelSizeMM, currentShade);
+                        }
                         startX = endX;
                     }
+                    currentShade = nextShade;
                 }
             } //End of line
             //Do we need to draw to end of line?
             if (endX > 0) {
-                drawPixels(attX , attY + i * verticalPixelSizeMM, currentShade);
+                //if this is white - eg 0 laser power - then skip it
+                if(currentShade != noLaserPower) {
+                    drawPixels(attX, attY + i * verticalPixelSizeMM, currentShade);
+                }
             }
         }
 
