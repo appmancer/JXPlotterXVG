@@ -25,9 +25,32 @@ echo "Compiling Java files..."
 find src/am/fats -name "*.java" > sources.txt
 javac -cp "$CLASSPATH" -d build/classes @sources.txt
 
+# Create manifest file
+echo "Creating manifest file..."
+mkdir -p build/META-INF
+echo "Manifest-Version: 1.0" > build/META-INF/MANIFEST.MF
+echo "Main-Class: am.fats.Main" >> build/META-INF/MANIFEST.MF
+echo "Class-Path: deps/slf4j-api-1.7.36.jar deps/logback-classic-1.2.11.jar deps/logback-core-1.2.11.jar deps/jaxb-api-2.3.1.jar deps/jaxb-runtime-2.3.1.jar" >> build/META-INF/MANIFEST.MF
+
 # Create JAR file
 echo "Creating JAR file..."
-jar -cvf build/libs/JXPlotterSVG-1.4.0.jar -C build/classes .
+jar -cvfm build/libs/JXPlotterSVG-1.4.0.jar build/META-INF/MANIFEST.MF -C build/classes .
+
+# Create a standalone distribution
+echo "Creating standalone distribution..."
+mkdir -p dist/JXPlotterSVG-1.4.0/deps
+cp build/libs/JXPlotterSVG-1.4.0.jar dist/JXPlotterSVG-1.4.0/
+cp build/deps/*.jar dist/JXPlotterSVG-1.4.0/deps/
+cp run.sh dist/JXPlotterSVG-1.4.0/
+cp materials/*.xml dist/JXPlotterSVG-1.4.0/
+cp XPlotterTemplate.svg dist/JXPlotterSVG-1.4.0/
+cp README.md dist/JXPlotterSVG-1.4.0/
+cp WhatsNew.txt dist/JXPlotterSVG-1.4.0/
+
+# Create a standalone JAR in the project root
+cp build/libs/JXPlotterSVG-1.4.0.jar ./
 
 echo "Build complete. JAR file is at build/libs/JXPlotterSVG-1.4.0.jar"
+echo "Standalone distribution is in dist/JXPlotterSVG-1.4.0/"
 echo "Run with: java -cp \"$CLASSPATH:build/libs/JXPlotterSVG-1.4.0.jar\" am.fats.Main"
+echo "Or use the run.sh script"
