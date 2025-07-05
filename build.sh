@@ -27,7 +27,7 @@ javac -cp "$CLASSPATH" -d build/classes @sources.txt
 
 # Create JAR file
 echo "Creating JAR file..."
-jar -cvf build/libs/JXPlotterSVG-1.3.0.jar -C build/classes .
+jar -cvf build/libs/JXPlotterSVG-1.4.0.jar -C build/classes .
 
-echo "Build complete. JAR file is at build/libs/JXPlotterSVG-1.3.0.jar"
-echo "Run with: java -cp \"$CLASSPATH:build/libs/JXPlotterSVG-1.3.0.jar\" am.fats.Main"
+echo "Build complete. JAR file is at build/libs/JXPlotterSVG-1.4.0.jar"
+echo "Run with: java -cp \"$CLASSPATH:build/libs/JXPlotterSVG-1.4.0.jar\" am.fats.Main"

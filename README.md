@@ -1,122 +1,137 @@
 # JXPlotterSVG
-This is the Java port of the now discontinued Qt project, XPlotterSVG. 
 
-This project is a command line tool to convert SVG files into GCode, specifically for the[XPlotter.](https://www.pinecone.ai/product-page/xplotter-kit)
+This is a Java application to convert SVG files into GCode, specifically for the [XPlotter](https://www.pinecone.ai/product-page/xplotter-kit).
 
-To use this tool, you will need to have Java 8 installed.  This is the current version of Java.
+## Features
 
-Usage: 
+- Converts SVG files to GCode for XPlotter devices
+- Supports various SVG elements (paths, lines, circles, etc.)
+- Configurable material settings for different tools and media
+- Raster image support for laser engraving photos
+- Boundary box preview to verify material placement
+- GUI interface for easier operation
+
+## Requirements
+
+- Java 11 or higher
+
+## Building from Source
+
+### Using the Build Script (Recommended)
+
+The easiest way to build JXPlotterSVG is using the included build script:
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/JXPlotterXVG.git
+cd JXPlotterXVG
+
+# Make the build script executable
+chmod +x build.sh
+
+# Build the application
+./build.sh
 ```
-java -jar XPlotterSVG.jar <svgfile> <materialfile> <outputfile>
+
+The build script will:
+1. Download all required dependencies
+2. Compile the Java source files
+3. Create a runnable JAR file
+
+The built JAR file will be in `build/libs/JXPlotterSVG-1.4.0.jar`.
+
+### Using Gradle (Alternative)
+
+```bash
+# Build with Gradle
+./gradlew build
+
+# Create a runnable JAR file
+./gradlew jar
+
+# Create a native application package (optional)
+./gradlew jpackage
 ```
-for instance:
+
+## Usage
+
+### Using the Run Script
+
+The easiest way to run JXPlotterSVG is using the included run script:
+
+```bash
+# Make the run script executable
+chmod +x run.sh
+
+# Run in GUI mode (no arguments)
+./run.sh
+
+# Run in CLI mode with arguments
+./run.sh MyDesign.svg laser+card.xml XPLOTTER.G
 ```
-java -jar XPlotterSVG.jar MyDesign.svg laser+card.xml XPLOTTER.G
+
+### Graphical User Interface (GUI)
+
+The application includes a graphical interface for easier use:
+
+1. Launch the application by running `./run.sh` without arguments
+2. Use the "Browse" buttons to select your SVG file, material file, and output location
+3. Check "Disable Pause Button" if needed
+4. Click "Convert" to process the file
+5. The log area will show progress and any errors
+
+### Command-line Interface (CLI)
+
+You can use the command-line interface for scripting or automation:
+
+```bash
+./run.sh <svgfile> <materialfile> <outputfile> [--nopause]
 ```
-The above command will convert your SVG design into GCode use the laser+card material file.
 
-## Video
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=57KKTaG7nsA" target="_blank"><img src="http://img.youtube.com/vi/57KKTaG7nsA/0.jpg" 
-alt="XPlotterSVG in action" width="240" height="180" border="10" /></a>
+For example:
+```bash
+./run.sh MyDesign.svg laser+card.xml XPLOTTER.G
+```
 
-## Download
-Clone and build from this repo, or just [download from here](http://fats.am/XPlotterSVG/XPlotterSVG.jar)
+#### Command-line options
 
-## Creating the SVG file
-You might already have a design in an editor like [Inkscape.](https://inkscape.org/en/) To prepare your design for conversion,
-I recommend that you copy your design into the [template](https://fats.am/XPlotterSVG/XPlotterTemplate.svg) I've designed.
-This template creates a workspace 240x300mm, the working space of the XPlotter.
+- `<svgfile>`: Path to the SVG file to convert
+- `<materialfile>`: Path to the material configuration XML file
+- `<outputfile>`: (Optional) Path for the output GCode file (default: XPLOTTER.G)
+- `--nopause`: (Optional) Disable the pause button in the generated GCode
 
-## Using a material file
-The XPlotter comes with a variety of tools, and can be used with a variety of media.  The tool and the medium you are working with
-will have an effect on the GCode.  For instance, cutting plywood
-with the laser means a lower feedrate, and for the cuts to be repeated.  The same SVG with
-a pen and paper will mean a faster feed rate, and no repetition.
+## Material Files
 
-To specify how you want the tool to behave, you use a material file.  There are a few
-example files in the project, but these settings are not tried and tested.  You should
-experiment with the settings and create new material files based on your experience.  
-If you do create a new material file, share it with me, and I'll add it to this
-repository.
+Material files define how the XPlotter should operate with different tools and media. They are XML files with settings for feed rate, power, and repetition.
 
-The XML file is very simple to read:
+Example material file:
 ```xml
 <?xml version="1.0" standalone="no"?>
-<material name="Laser and 3mm Plywood">
-	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="laser"/>
-	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="laser"/>
-	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="laser"/>
-	<Cut 		feedrate="100" power="255" repeat="4" hexcode="#000000" tool="laser"/>
-	<Raster		feedrate="400" power="255" repeat="1" hexcode="raster"  tool="laser"/>
-</material>
-
-```
-You can specify several different tool settings in one material file. 
-In this example, I've created settings for light, medium and dark marks 
-on the medium, plus a setting to cut through the wood.
-
-You can create as many different settings as you need in one file, but 
-ensure that each setting has a unique hexcode.
-
-You can download [example material files here](http://fats.am/XPlotterSVG/materials.zip).
-
-## Raster images
-The exception is handling raster images.  You can include raster images (like colour photos)
-in your SVG and they will be converted.  Because you can't set the colour on the raster image
-then you can just set one specification.  The power value will be ignored, it will be
-calculated by the shade on the pixel of the image that is being drawn. Feedrate and
-repeat values are used.
-
-## Matching materials to the design
-In your design you can specify which setting to apply by setting the stroke colour
-of the line to the hexcode that you've specified in the material file.
-Lines and marks that don't have a matching hexcode will not be converted, which
-means that you can put comments and guidelines into your designs that
-won't be processed.
-
-## Text and paths
-The XPlotterSVG utility is pretty good with SVG primitives and paths, but some shapes are too complex
-for it to convert.  Text is a good example. 
-
-To use text in your design, before you convert, select the text, and the Path, and Object to Path.  You wont be able
-to edit your text now, but it will convert correctly for plotting.
-
-## Multiple steps
-If you find that your XPlotter needs to repeat the same design with different settings to get a good quality cut, then
-you can use more than one entry for the same hexcode.  All the steps will be performed in the order that they appear
-in the XML
-```
-<?xml version="1.0" standalone="no"?>
-<material name="Laser and 3mm Plywood">
-	<Light  	feedrate="800" power="255" repeat="1" hexcode="#ff0000" tool="laser"/>
-	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="laser"/>
-	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="laser"/>
-	<Score 		feedrate="800" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
-	<Burn 		feedrate="100" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
-	<Finish 	feedrate="400" power="255" repeat="10" hexcode="#000000" dwell="20" tool="laser"/>
-	<Raster		feedrate="400" power="255" repeat="1" hexcode="raster"  tool="laser"/>
+<material name="Laser and Card">
+    <Light   feedrate="800" power="32"  repeat="1" hexcode="#ff0000" tool="laser"/>
+    <Medium  feedrate="400" power="64"  repeat="1" hexcode="#0000ff" tool="laser"/>
+    <Dark    feedrate="200" power="128" repeat="1" hexcode="#00ff00" tool="laser"/>
+    <Cut     feedrate="200" power="255" repeat="1" hexcode="#000000" tool="laser"/>
+    <Raster  feedrate="400" power="255" repeat="1" hexcode="raster"  tool="laser"/>
 </material>
 ```
 
-## Changing the focus length
-Some XPlotter users find that they need to refocus the laser or raise the bed during a cut.  You can add a number
-of seconds to delay after all repetitions to give you a change to make the adjustment by setting the number of seconds
-in the 'dwell' attribute.
+## Creating SVG Files
 
-## Activating the 'Pause' button
-Unlike the software from Pinecode, this program does not disable the 'Pause' button by default.  You can create a gcode file
-with the pause disabled by adding the attribute --nopause as a final command.  e.g.
-```
-java -jar XPlotterSVG.jar MyDesign.svg laser+card.xml XPLOTTER.G --nopause
-```
+1. Design your SVG in an editor like [Inkscape](https://inkscape.org/)
+2. Use the [template](https://fats.am/XPlotterSVG/XPlotterTemplate.svg) for proper dimensions (240x300mm)
+3. Set stroke colors to match the hexcodes in your material file
+4. For text, convert to paths (Path > Object to Path in Inkscape)
+5. Save as Plain SVG
 
-## Preparing your design
-1. In Inkscape, check that your shapes have the correct hexcode.
-2. Press CTRL+SHIFT+F to open the Fill & Stroke dialogue boxes
-3. Select your shapes, and in the Fill tab, set to 'no paint'
-4. In the Stroke Paint tab, set to 'Flat colour'
-5. In the Stroke style tab, set the stroke width to 0.001mm
-*Your shape will seem to disappear.* Don't worry, it is still there. Zoom and 
-you can see it.  Check the places where your shape intersects other shapes
-to make sure that the lines are the correct length.
-6. Choose File, Save As...  Name the file, and select 'Plain SVG' as the file type
+## New in Version 1.4.0
+
+- Updated build system for Java 11+ compatibility
+- Added boundary box preview to verify material placement
+- Improved error handling and logging
+- Fixed JAXB dependency issues for modern Java versions
+- Added build.sh and run.sh scripts for easier building and execution
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
