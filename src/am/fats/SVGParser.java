@@ -52,7 +52,19 @@ public class SVGParser extends DefaultHandler
         mGCode.writeLine("G21"); //Units in mm
         mGCode.writeLine("G28"); //Reset to origin
         mGCode.writeLine("G90"); //All positions are absolute
+        
+        // Add boundary box preview
+        GCodeComment boundaryComment = new GCodeComment("Boundary box preview - check material placement");
+        mGCode.writeLine(boundaryComment.toString());
 
+        // Draw boundary box before starting the job
+        drawBoundaryBox();
+        
+        // Add pause to allow operator to check
+        GCodeComment pauseComment = new GCodeComment("Pausing for operator to verify material placement");
+        mGCode.writeLine(pauseComment.toString());
+        mGCode.writeLine("G4 P5000"); // Pause for 5 seconds
+        
         SAXParserFactory spf = SAXParserFactory.newInstance();
         spf.setNamespaceAware(true);
         SAXParser saxParser;
@@ -213,6 +225,54 @@ public class SVGParser extends DefaultHandler
         return spec;
     }
 
+    /**
+     * Draws a boundary box around the work area to help the operator verify material placement
+     * before the actual job starts.
+     */
+    protected void drawBoundaryBox() throws IOException {
+        Point2D viewBox = PlotterState.getViewBox();
+        double width = viewBox.x;
+        double height = viewBox.y;
+        
+        // Make sure laser is off
+        GCodeLaserOff laserOff = new GCodeLaserOff();
+        mGCode.writeLine(laserOff.toString());
+        
+        // Set rapid movement speed
+        mGCode.writeLine("G1 F1200");
+        
+        // Move to origin
+        GCodeMove moveToOrigin = new GCodeMove(0, 0);
+        moveToOrigin.setTransformationStack(mTrans);
+        mGCode.writeLine(moveToOrigin.toString());
+        
+        // Draw boundary box (clockwise from origin)
+        // Bottom-left to bottom-right
+        GCodeMove move1 = new GCodeMove(width, 0);
+        move1.setTransformationStack(mTrans);
+        mGCode.writeLine(move1.toString());
+        
+        // Bottom-right to top-right
+        GCodeMove move2 = new GCodeMove(width, height);
+        move2.setTransformationStack(mTrans);
+        mGCode.writeLine(move2.toString());
+        
+        // Top-right to top-left
+        GCodeMove move3 = new GCodeMove(0, height);
+        move3.setTransformationStack(mTrans);
+        mGCode.writeLine(move3.toString());
+        
+        // Top-left to bottom-left (back to origin)
+        GCodeMove move4 = new GCodeMove(0, 0);
+        move4.setTransformationStack(mTrans);
+        mGCode.writeLine(move4.toString());
+        
+        // Return to origin
+        GCodeMove returnToOrigin = new GCodeMove(0, 0);
+        returnToOrigin.setTransformationStack(mTrans);
+        mGCode.writeLine(returnToOrigin.toString());
+    }
+    
     protected void configureTool(CutSpecification spec) throws IOException {
         if(spec == null)
             return;

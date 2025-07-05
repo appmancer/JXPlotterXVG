@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="XPlotterSVG:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/XPlotterSVG_jar</output-path>
-    <root id="archive" name="XPlotterSVG.jar">
-      <element id="module-output" name="XPlotterSVG" />
-    </root>
-  </artifact>
-</component>

@@ -1,0 +1,80 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.beryx.jlink' version '2.26.0'
+}
+
+group 'am.fats'
+version '1.3.0'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.0'
+}
+
+application {
+    mainClass = 'am.fats.gui.JXPlotterSVGGui'
+    mainModule = 'am.fats.jxplottersvg'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'am.fats.Main',
+            'Implementation-Title': 'JXPlotterSVG',
+            'Implementation-Version': project.version
+        )
+    }
+    
+    // Include all dependencies in the jar
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+// Configure jlink to create a custom runtime image
+jlink {
+    options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
+    launcher {
+        name = 'jxplottersvg'
+        jvmArgs = []
+    }
+    
+    jpackage {
+        // Common settings
+        appName = 'JXPlotterSVG'
+        appVersion = project.version
+        vendor = 'Samuel Pickard'
+        copyright = 'Copyright (C) 2017-2025 Samuel Pickard'
+        
+        // Platform-specific settings
+        if (org.gradle.internal.os.OperatingSystem.current().isWindows()) {
+            installerType = 'exe'
+            icon = 'src/main/resources/icons/jxplottersvg.ico'
+            installerOptions = ['--win-menu', '--win-shortcut']
+        } else if (org.gradle.internal.os.OperatingSystem.current().isMacOsX()) {
+            installerType = 'dmg'
+            icon = 'src/main/resources/icons/jxplottersvg.icns'
+        } else {
+            installerType = 'deb'
+            icon = 'src/main/resources/icons/jxplottersvg.png'
+            installerOptions = ['--linux-shortcut']
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
