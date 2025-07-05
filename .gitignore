@@ -1,0 +1,19 @@
+# IDE settings
+.idea/
+
+# Build artifacts
+out/
+build/
+*.jar
+*.class
+
+# SVGs (except template)
+*.svg
+!XPlotterTemplate.svg
+
+# Gradle
+.gradle/
+
+# Generated G-code files
+*.G
+*.gcode
