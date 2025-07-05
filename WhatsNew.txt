@@ -5,6 +5,9 @@ XPlotterSVG - What's New?
 - Added boundary box preview to verify material placement
 - Improved error handling and logging
 - Fixed JAXB dependency issues for modern Java versions
+- Created standalone JAR with proper manifest
+- Added JXPlotterSVG.sh wrapper script for easier execution
+- Created standalone distribution with all dependencies
 
 1.3.0
 - Added GUI interface for easier operation

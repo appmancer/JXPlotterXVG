@@ -55,9 +55,36 @@ The built JAR file will be in `build/libs/JXPlotterSVG-1.4.0.jar`.
 
 ## Usage
 
+### Using the Standalone JAR
+
+The simplest way to run JXPlotterSVG is using the standalone JAR file:
+
+```bash
+# Run in GUI mode (no arguments)
+java -jar JXPlotterSVG-1.4.0.jar
+
+# Run in CLI mode with arguments
+java -jar JXPlotterSVG-1.4.0.jar MyDesign.svg laser+card.xml XPLOTTER.G
+```
+
+### Using the Wrapper Script
+
+You can also use the included wrapper script:
+
+```bash
+# Make the wrapper script executable
+chmod +x JXPlotterSVG.sh
+
+# Run in GUI mode (no arguments)
+./JXPlotterSVG.sh
+
+# Run in CLI mode with arguments
+./JXPlotterSVG.sh MyDesign.svg laser+card.xml XPLOTTER.G
+```
+
 ### Using the Run Script
 
-The easiest way to run JXPlotterSVG is using the included run script:
+Alternatively, you can use the run.sh script:
 
 ```bash
 # Make the run script executable
@@ -131,6 +158,9 @@ Example material file:
 - Improved error handling and logging
 - Fixed JAXB dependency issues for modern Java versions
 - Added build.sh and run.sh scripts for easier building and execution
+- Created standalone JAR with proper manifest
+- Added JXPlotterSVG.sh wrapper script for easier execution
+- Created standalone distribution with all dependencies
 
 ## License
 
