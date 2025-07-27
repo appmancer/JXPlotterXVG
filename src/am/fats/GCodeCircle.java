@@ -29,10 +29,10 @@ public class GCodeCircle extends GCodePath
     @Override
     public String toString()
     {
-        //We need to convert a circle in to a series of short lines.  Some experimentation is
-        //needed, but I'm going to assume that line lengths of 1mm are about right
-        //Calculate the length of the circumference, and that will be the number of steps
-        int steps = (int)Math.floor(2 * mRadius * Math.PI);
+        //We need to convert a circle in to a series of short lines.  
+        //Use smaller segments for better circle quality - aim for 0.5mm segments
+        //but ensure minimum 16 steps for small circles to avoid polygonal appearance
+        int steps = Math.max(16, (int)Math.floor(2 * mRadius * Math.PI / 0.5));
 
 
         //Fast mid-point circle algorithms aren't going to help us here, lets do it the old-fashioned way

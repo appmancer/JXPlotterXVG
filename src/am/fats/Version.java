@@ -4,6 +4,6 @@ public class Version
 {
     public static String version()
     {
-        return "1.4.0";
+        return "1.4.1";
     }
 }
