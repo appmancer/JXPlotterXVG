@@ -23,6 +23,7 @@ public class GCodeLaserOn extends GCodeCommand
         //Update the logical position of the plotter head
         PlotterState.setHeadDown();
 
-        return String.format("M3 S%d", Tool.getPower());
+        // GRBL laser mode is enabled once in the file header (M4). Here we only set power.
+        return String.format("S%d", Tool.getPower());
     }
 }

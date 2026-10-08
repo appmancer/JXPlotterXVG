@@ -16,6 +16,37 @@ import java.util.ArrayDeque;
 
 public class TransformationStack implements Cloneable
 {
+    public Transformation combined()
+    {
+        Transformation result = new Transformation();
+        result.a = 1;
+        result.d = 1;
+
+        Transformation[] stack = new Transformation[mStack.size()];
+        mStack.toArray(stack);
+        for(int i = mStack.size(); i > 0; --i)
+        {
+            Transformation t = stack[i - 1];
+
+            Transformation next = new Transformation();
+            next.a = result.a * t.a + result.c * t.b;
+            next.b = result.b * t.a + result.d * t.b;
+            next.c = result.a * t.c + result.c * t.d;
+            next.d = result.b * t.c + result.d * t.d;
+            next.e = result.a * t.e + result.c * t.f + result.e;
+            next.f = result.b * t.e + result.d * t.f + result.f;
+
+            result = next;
+        }
+
+        return result;
+    }
+
+    public boolean isUniformScaleAndNoSkew(double tolerance)
+    {
+        Transformation t = combined();
+        return Math.abs(t.b) <= tolerance && Math.abs(t.c) <= tolerance && Math.abs(t.a - t.d) <= tolerance;
+    }
     ArrayDeque<Transformation> mStack;
 
     public TransformationStack()

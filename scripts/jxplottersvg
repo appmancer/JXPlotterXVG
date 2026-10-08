@@ -1,0 +1,4 @@
+#!/bin/sh
+# JXPlotterSVG launcher
+# Converts SVG to GCode for Creality Falcon laser
+exec java -jar /opt/jxplottersvg/JXPlotterSVG.jar "$@"

@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="no"?>
+<material name="Laser and 3mm Plywood (Falcon tuned)">
+	<!-- S scale: 0..1000. Falcon 10W plywood tends to char if power is too high or speed too low. -->
+	<Light 		feedrate="1200" power="128" repeat="1" hexcode="#ff0000" tool="laser"/>
+	<Medium 	feedrate="800" power="400" repeat="1" hexcode="#0000ff" tool="laser"/>
+	<Dark 		feedrate="700" power="500" repeat="1" hexcode="#00ff00" tool="laser"/>
+	<Cut 		feedrate="450" power="800" repeat="3" hexcode="#000000" tool="laser"/>
+	<Image		feedrate="3000" power="400" repeat="1" hexcode="raster" tool="laser"/>
+</material>
+

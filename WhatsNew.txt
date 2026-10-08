@@ -1,5 +1,26 @@
 XPlotterSVG - What's New?
 
+1.5.0
+- Boundary box framing pass is now performed automatically before every job
+  (the dead drawBoundaryBox() code from 1.4.0 is finally wired up)
+- Framing traces the tight bounding box of the actual cut geometry rather
+  than the SVG viewBox, so the frame matches what will be cut even when the
+  design has whitespace around it
+- Job pauses with M0 after framing so the operator can verify placement
+  before cutting begins; press cycle-start on the controller to resume
+- Build fixes: removed legacy duplicate Main.java/Version.java in src/am/fats,
+  replaced removed javax.xml.bind dependency with java.util.Base64,
+  source set now includes the legacy src/am tree, jlink jpackage block
+  updated for org.beryx.jlink 2.26.0 (appName -> imageName)
+- Shapes are cut inside-out: holes, slots and cutouts inside an outline are
+  cut before the outline, so a piece isn't freed (and free to drop or twist
+  on the bed) until it's finished
+- Output is written in the form the Creality Falcon runs straight through
+  from its card: power folded into motion lines, ; comments, and no blank or
+  feed-only lines (each of these made the Falcon wait for the button)
+- Every shape now ends with the laser off, the job ends with M5, and the
+  framing pass includes the full extent of arcs and circles
+
 1.4.0
 - Updated build system for Java 11+ compatibility
 - Added boundary box preview to verify material placement

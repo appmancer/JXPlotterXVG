@@ -15,6 +15,9 @@ package am.fats;
 
 public class CutSpecification
 {
+    //Falcon 10W optical output; material power values are raw S values on a 0..1000 scale
+    public static final double LASER_MAX_WATTS = 10.0;
+
     protected String mName;
     protected int mFeedrate;
     protected int mPower;
@@ -79,8 +82,30 @@ public class CutSpecification
         return mDwell;
     }
 
+    //Line energy delivered by a single pass, in J/mm: optical watts / (mm/s)
+    public double lineEnergyPerPass()
+    {
+        if(mFeedrate == 0)
+            return 0;
+
+        double watts = (mPower / 1000.0) * LASER_MAX_WATTS;
+        return watts / (mFeedrate / 60.0);
+    }
+
+    //Total line energy across all passes, in J/mm
+    public double totalLineEnergy()
+    {
+        return lineEnergyPerPass() * mRepeat;
+    }
+
     public void setTool(String tool)
     {
+        if (tool == null) {
+            // Default to pen if no tool is specified
+            setTool(1);
+            return;
+        }
+        
         try {
             int t = Integer.parseInt(tool);
             setTool(t);
@@ -94,6 +119,10 @@ public class CutSpecification
             else if(tool.toLowerCase().contentEquals("pen")
                     || tool.toLowerCase().contentEquals("brush"))
             {
+                setTool(1);
+            }
+            else {
+                // Default to pen for any other string
                 setTool(1);
             }
         }

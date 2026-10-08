@@ -30,14 +30,22 @@ public class SVGRect extends SVGElement
         double startY      = 0;
         double rectWidth   = 0;
         double rectHeight  = 0;
+        double cornerRadius = 0;
 
         startX      = Double.parseDouble(atts.getValue("x"));
         startY      = Double.parseDouble(atts.getValue("y"));
         rectWidth   = Double.parseDouble(atts.getValue("width"));
         rectHeight  = Double.parseDouble(atts.getValue("height"));
+        
+        // Check for rounded corners (ry attribute)
+        String ryValue = atts.getValue("ry");
+        if (ryValue != null && !ryValue.isEmpty()) {
+            cornerRadius = Double.parseDouble(ryValue);
+        }
 
-        //We have all of the value from the attributes
+        //We have all of the values from the attributes
         GCodeRect rect = new GCodeRect(startX, startY, rectWidth, rectHeight);
+        rect.setCornerRadius(cornerRadius);
         rect.setTransformationStack(mTrans);
         gcode.writeLine(rect.toString());
     }

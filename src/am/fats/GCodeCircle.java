@@ -29,39 +29,29 @@ public class GCodeCircle extends GCodePath
     @Override
     public String toString()
     {
-        //We need to convert a circle in to a series of short lines.  
-        //Use smaller segments for better circle quality - aim for 0.5mm segments
-        //but ensure minimum 16 steps for small circles to avoid polygonal appearance
-        int steps = Math.max(16, (int)Math.floor(2 * mRadius * Math.PI / 0.5));
-
-
-        //Fast mid-point circle algorithms aren't going to help us here, lets do it the old-fashioned way
-        //Realtime processing is not a target, the user can wait for 1 second.
-        //
-        double radiansPerStep = Math.PI * 2 / steps;
-
-        //Move to the zenith of the circle
-
         StringBuilder gcode = new StringBuilder();
         GCodeComment comment = new GCodeComment(String.format("Circle x:%.4f y:%.4f r:%.4f", mX, mY, mRadius));
         gcode.append(comment.toString());
         gcode.append(System.lineSeparator());
 
+        // GRBL circular interpolation (G2/G3) cannot reliably do a full 360 in one command.
+        // Emit two semicircles starting from the top of the circle.
+        double startX = mX;
+        double startY = mY + mRadius;
+        double oppositeX = mX;
+        double oppositeY = mY - mRadius;
+
         gcode.append(toolUp());
-        gcode.append(move(mX, mY + mRadius));
+        gcode.append(move(startX, startY));
         gcode.append(toolDown());
 
-        double theta = 0;
-        for(int i = 0; i < steps; i++)
-        {
-            double nx = mX + mRadius * Math.sin(theta);
-            double ny = mY + mRadius * Math.cos(theta);
-            gcode.append(line(nx, ny));
+        GCodeArc arc1 = new GCodeArc(oppositeX, oppositeY, mX, mY, false);
+        arc1.setTransformationStack(mTrans.clone());
+        gcode.append(arc1.toString());
 
-            theta += radiansPerStep;
-        }
-        //Go back to the start
-        gcode.append(line(mX, mY + mRadius));
+        GCodeArc arc2 = new GCodeArc(startX, startY, mX, mY, false);
+        arc2.setTransformationStack(mTrans.clone());
+        gcode.append(arc2.toString());
 
         gcode.append(toolUp());
 

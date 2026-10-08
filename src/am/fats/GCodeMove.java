@@ -59,14 +59,19 @@ public class GCodeMove extends GCodeCommand
         DecimalFormat df = new DecimalFormat("0.####", otherSymbols);
         df.setGroupingUsed(false);
 
+        // Travel move: force laser power to 0 before any rapid.
+        // If the head is already up, we should already be at S0, so avoid emitting duplicates.
+        if(PlotterState.isHeadDown())
+        {
+            gcode.append("S0");
+            gcode.append(System.lineSeparator());
+        }
         gcode.append("G0 X");
         gcode.append(df.format(translatedPoint.x));
         //gcode.append(String.format("%8f",translatedPoint.x));
         gcode.append(" Y");
         gcode.append(df.format(viewY - translatedPoint.y));
         //gcode.append(String.format("%8f", viewY - translatedPoint.y));
-        //For Candle to show the rendering, we need to add a Z axis. The XPlotter ignores this value
-        gcode.append(" Z -1.000");
         gcode.append(" F1200"); //Override feed rate, we're just moving
         gcode.append(System.lineSeparator());
 

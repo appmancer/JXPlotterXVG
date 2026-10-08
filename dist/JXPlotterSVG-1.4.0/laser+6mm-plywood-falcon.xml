@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<material name="Laser and 6mm Plywood (Falcon tuned)">
+	<!-- S scale: 0..1000. Falcon 10W plywood tends to char if power is too high or speed too low. -->
+	<Light 		feedrate="1200" power="128" repeat="1" hexcode="#ff0000" tool="laser"/>
+	<Medium 	feedrate="800" power="400" repeat="1" hexcode="#0000ff" tool="laser"/>
+	<Dark 		feedrate="700" power="500" repeat="1" hexcode="#00ff00" tool="laser"/>
+	<!-- Line energy: 0.6*S/F J/mm per pass. 3mm cut = 3.2 J/mm total; 6mm wants ~2.2-2.5x that.
+	     S900 @ F450 x6 = 1.2 J/mm/pass = 7.2 J/mm total. Keep feedrate >=450 to avoid scorching.
+	     Verified 2026-06-07: cuts through in ~5 passes; repeat=6 kept for margin (wood varies). -->
+	<Cut 		feedrate="450" power="900" repeat="6" hexcode="#000000" tool="laser"/>
+	<Image		feedrate="3000" power="400" repeat="1" hexcode="raster" tool="laser"/>
+</material>
+

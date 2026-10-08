@@ -30,23 +30,40 @@ public class GCodeEllipse extends GCodePath
     @Override
     public String toString()
     {
-        //We need to convert a circle in to a series of short lines.  Some experimentation is
-        //needed, but I'm going to assume that line lengths of 1mm are about right
-        //Calculate the length of the circumference, and that will be the number of steps
-        int steps = (int)Math.floor(2 * ((mRadiusX + mRadiusY) / 2) * Math.PI);
-
-
-        //Fast mid-point circle algorithms aren't going to help us here, lets do it the old-fashioned way
-        //Realtime processing is not a target, the user can wait for 1 second.
-        //
-        double radiansPerStep = Math.PI * 2 / steps;
-
-        //Move to the zenith of the circle
-
         StringBuilder gcode = new StringBuilder();
         GCodeComment comment = new GCodeComment(String.format("Ellipse x:%.4f y:%.4f rX:%.4f rY:%.4f", mX, mY, mRadiusX, mRadiusY));
         gcode.append(comment.toString());
         gcode.append(System.lineSeparator());
+
+        // If the ellipse is actually a circle (and transforms won't distort it), emit arcs.
+        if(Math.abs(mRadiusX - mRadiusY) <= 1e-4 && (mTrans == null || mTrans.isUniformScaleAndNoSkew(1e-6)))
+        {
+            double r = (mRadiusX + mRadiusY) / 2.0;
+            double startX = mX;
+            double startY = mY + r;
+            double oppositeX = mX;
+            double oppositeY = mY - r;
+
+            gcode.append(toolUp());
+            gcode.append(move(startX, startY));
+            gcode.append(toolDown());
+
+            GCodeArc arc1 = new GCodeArc(oppositeX, oppositeY, mX, mY, false);
+            arc1.setTransformationStack(mTrans.clone());
+            gcode.append(arc1.toString());
+
+            GCodeArc arc2 = new GCodeArc(startX, startY, mX, mY, false);
+            arc2.setTransformationStack(mTrans.clone());
+            gcode.append(arc2.toString());
+
+            gcode.append(toolUp());
+            return gcode.toString();
+        }
+
+        // Fallback: polygonize true ellipses.
+        // Calculate the length of the circumference and use that as the number of steps.
+        int steps = (int)Math.floor(2 * ((mRadiusX + mRadiusY) / 2) * Math.PI);
+        double radiansPerStep = Math.PI * 2 / steps;
 
         gcode.append(toolUp());
         gcode.append(move(mX, mY + mRadiusY));
@@ -60,7 +77,6 @@ public class GCodeEllipse extends GCodePath
             gcode.append(line(nx, ny));
             theta += radiansPerStep;
         }
-        //Go back to the start
         gcode.append(line(mX, mY + mRadiusY));
 
         gcode.append(toolUp());

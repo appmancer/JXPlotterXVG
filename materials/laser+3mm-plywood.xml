@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <material name="Laser and 3mm Plywood">
 	<Light  	feedrate="600" power="128" repeat="1" hexcode="#ff0000" tool="laser"/>
-	<Medium 	feedrate="400" power="255" repeat="1" hexcode="#0000ff" tool="laser"/>
-	<Dark 		feedrate="200" power="255" repeat="1" hexcode="#00ff00" tool="laser"/>
-	<Cut 		feedrate="150" power="255" repeat="13" hexcode="#000000" tool="laser"/>
-	<Image		feedrate="800" power="255" repeat="1" hexcode="raster" tool="laser"/>
+	<Medium 	feedrate="400" power="1000" repeat="1" hexcode="#0000ff" tool="laser"/>
+	<Dark 		feedrate="200" power="1000" repeat="1" hexcode="#00ff00" tool="laser"/>
+	<Cut 		feedrate="150" power="1000" repeat="3" hexcode="#000000" tool="laser"/>
+	<Image		feedrate="800" power="1000" repeat="1" hexcode="raster" tool="laser"/>
 </material>
 

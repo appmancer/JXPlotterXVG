@@ -133,7 +133,35 @@ public class SVGPath_Elliptical_Arc_Abs extends SVGPath_Command
         //From here on there is a difference of opinion.  The above code is specified in the
         //notes at https://www.w3.org/TR/SVG/implnote.html#ArcImplementationNotes
         //but it is what you do with it.
-        drawArc_nc(p1Prime, centerPrime, centerPoint, rx, ry, sweep > 0, angle);
+        boolean sweepFlag = sweep > 0;
+
+        if(canEmitCircularArc(rx, ry, mTrans))
+        {
+            headDown(mGCode);
+            // Our output coordinate system flips Y (viewBox inversion). That reverses arc direction.
+            boolean clockwise = !sweepFlag;
+
+            GCodeArc arc = new GCodeArc(x, y, centerPoint.x, centerPoint.y, clockwise);
+            arc.setTransformationStack(mTrans);
+            mGCode.writeLine(arc.toString());
+            return;
+        }
+
+        drawArc_nc(p1Prime, centerPrime, centerPoint, rx, ry, sweepFlag, angle);
+    }
+
+    protected boolean canEmitCircularArc(double rx, double ry, TransformationStack trans)
+    {
+        double tol = 1e-6;
+        if(Math.abs(rx - ry) > 1e-4)
+        {
+            return false;
+        }
+        if(trans != null && !trans.isUniformScaleAndNoSkew(tol))
+        {
+            return false;
+        }
+        return true;
     }
 
     // Draws the arc using the method from https://github.com/mythagel/nc_tools/blob/master/src/nc_svgpath/svgpath.cpp

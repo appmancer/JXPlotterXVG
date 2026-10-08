@@ -1,10 +1,26 @@
 XPlotterSVG - What's New?
 
+1.5.0
+- Boundary box framing pass is now performed automatically before every job
+  (the dead drawBoundaryBox() code from 1.4.0 is finally wired up)
+- Framing traces the tight bounding box of the actual cut geometry rather
+  than the SVG viewBox, so the frame matches what will be cut even when the
+  design has whitespace around it
+- Job pauses with M0 after framing so the operator can verify placement
+  before cutting begins; press cycle-start on the controller to resume
+- Build fixes: removed legacy duplicate Main.java/Version.java in src/am/fats,
+  replaced removed javax.xml.bind dependency with java.util.Base64,
+  source set now includes the legacy src/am tree, jlink jpackage block
+  updated for org.beryx.jlink 2.26.0 (appName -> imageName)
+
 1.4.0
 - Updated build system for Java 11+ compatibility
 - Added boundary box preview to verify material placement
 - Improved error handling and logging
 - Fixed JAXB dependency issues for modern Java versions
+- Created standalone JAR with proper manifest
+- Added JXPlotterSVG.sh wrapper script for easier execution
+- Created standalone distribution with all dependencies
 
 1.3.0
 - Added GUI interface for easier operation

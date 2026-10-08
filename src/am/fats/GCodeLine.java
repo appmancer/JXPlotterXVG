@@ -62,8 +62,6 @@ public class GCodeLine extends GCodeMove
         gcode.append(" Y");
         gcode.append(df.format(viewY - translatedPoint.y));
         //gcode.append(String.format("%8f", viewY - translatedPoint.y));
-        //For Candle to show the rendering, we need to add a Z axis. The XPlotter ignores this value
-        gcode.append(" Z -1.000");
         gcode.append(String.format(" F%d", Tool.getFeedrate())); //Override feed rate, we're just moving
         gcode.append(System.lineSeparator());
 

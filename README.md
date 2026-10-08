@@ -38,7 +38,7 @@ The build script will:
 2. Compile the Java source files
 3. Create a runnable JAR file
 
-The built JAR file will be in `build/libs/JXPlotterSVG-1.4.0.jar`.
+The built JAR file will be in `build/libs/JXPlotterSVG-1.5.0.jar`.
 
 ### Using Gradle (Alternative)
 
@@ -61,10 +61,10 @@ The simplest way to run JXPlotterSVG is using the standalone JAR file:
 
 ```bash
 # Run in GUI mode (no arguments)
-java -jar JXPlotterSVG-1.4.0.jar
+java -jar JXPlotterSVG-1.5.0.jar
 
 # Run in CLI mode with arguments
-java -jar JXPlotterSVG-1.4.0.jar MyDesign.svg laser+card.xml XPLOTTER.G
+java -jar JXPlotterSVG-1.5.0.jar MyDesign.svg laser+card.xml XPLOTTER.G
 ```
 
 ### Using the Wrapper Script
@@ -151,7 +151,7 @@ Example material file:
 4. For text, convert to paths (Path > Object to Path in Inkscape)
 5. Save as Plain SVG
 
-## New in Version 1.4.0
+## New in Version 1.5.0
 
 - Updated build system for Java 11+ compatibility
 - Added boundary box preview to verify material placement

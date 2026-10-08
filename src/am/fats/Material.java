@@ -87,6 +87,14 @@ public class Material extends DefaultHandler
             newSpec.setHexCode(atts.getValue("hexcode"));
 
             sSpecs.add(newSpec);
+
+            //Report line energy for laser specs so material files can be sanity-checked
+            if(newSpec.getTool() == Tool.TOOL_LASER && newSpec.getFeedrate() > 0)
+            {
+                System.out.println(String.format("  %-8s S%d @ F%d x%d = %.2f J/mm/pass, %.2f J/mm total",
+                        localName + ":", newSpec.getPower(), newSpec.getFeedrate(), newSpec.getRepeat(),
+                        newSpec.lineEnergyPerPass(), newSpec.totalLineEnergy()));
+            }
         }
     }
 

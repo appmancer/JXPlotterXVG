@@ -20,9 +20,13 @@ public class GCodeLaserOff extends GCodeCommand
     @Override
     public String toString()
     {
-        //Update the logical position of the plotter head
-        PlotterState.setHeadUp();
+        // If the head is already up, we don't need to spam S0.
+        if(!PlotterState.isHeadDown())
+        {
+            return "";
+        }
 
-        return "M5";
+        PlotterState.setHeadUp();
+        return "S0";
     }
 }

@@ -48,7 +48,7 @@ public class SVGImage extends SVGElement
         //Thanks to https://stackoverflow.com/questions/23979842/convert-base64-string-to-image
         // tokenize the data
         String base64Image = base64.split(",")[1];
-        byte[] imageBytes = javax.xml.bind.DatatypeConverter.parseBase64Binary(base64Image);
+        byte[] imageBytes = java.util.Base64.getDecoder().decode(base64Image);
         BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageBytes));
 
         Raster r = image.getRaster();
